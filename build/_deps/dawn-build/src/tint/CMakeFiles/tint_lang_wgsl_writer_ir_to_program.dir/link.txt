@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_writer_ir_to_program.a CMakeFiles/tint_lang_wgsl_writer_ir_to_program.dir/lang/wgsl/writer/ir_to_program/ir_to_program.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_writer_ir_to_program.a

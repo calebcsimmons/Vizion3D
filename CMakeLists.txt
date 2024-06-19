@@ -10,6 +10,12 @@ project(
 # Executables
 add_executable(App main.cpp)
 
+# Subdirectories
+add_subdirectory(webGPU)
+
+# Dependencies
+target_link_libraries(App PRIVATE webGPU)
+
 # Set target properties
 set_target_properties(App PROPERTIES
     CXX_STANDARD 17

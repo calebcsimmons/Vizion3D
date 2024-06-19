@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_features.a CMakeFiles/tint_lang_wgsl_features.dir/lang/wgsl/features/language_feature.cc.o CMakeFiles/tint_lang_wgsl_features.dir/lang/wgsl/features/status.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_features.a

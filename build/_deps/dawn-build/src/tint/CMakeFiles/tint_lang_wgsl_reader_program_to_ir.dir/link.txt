@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_reader_program_to_ir.a CMakeFiles/tint_lang_wgsl_reader_program_to_ir.dir/lang/wgsl/reader/program_to_ir/program_to_ir.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_reader_program_to_ir.a

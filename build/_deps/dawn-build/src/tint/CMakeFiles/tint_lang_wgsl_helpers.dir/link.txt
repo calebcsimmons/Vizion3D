@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_helpers.a CMakeFiles/tint_lang_wgsl_helpers.dir/lang/wgsl/helpers/append_vector.cc.o CMakeFiles/tint_lang_wgsl_helpers.dir/lang/wgsl/helpers/apply_substitute_overrides.cc.o CMakeFiles/tint_lang_wgsl_helpers.dir/lang/wgsl/helpers/check_supported_extensions.cc.o CMakeFiles/tint_lang_wgsl_helpers.dir/lang/wgsl/helpers/flatten_bindings.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_helpers.a

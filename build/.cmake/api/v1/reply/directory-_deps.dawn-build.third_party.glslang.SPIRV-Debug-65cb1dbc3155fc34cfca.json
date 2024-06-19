@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/third_party/glslang/SPIRV",
+		"source" : "build/_deps/dawn-src/third_party/glslang/src/SPIRV"
+	}
+}

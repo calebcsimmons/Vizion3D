@@ -1,0 +1,45 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/third_party/glfw/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 363,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"_deps/dawn-build/third_party/glfw/src/libglfw3.a"
+			],
+			"targetId" : "glfw::@540a6f46153d96c5fd02",
+			"targetIndex" : 112,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/third_party/glfw/src",
+		"source" : "build/_deps/dawn-src/third_party/glfw/src"
+	}
+}

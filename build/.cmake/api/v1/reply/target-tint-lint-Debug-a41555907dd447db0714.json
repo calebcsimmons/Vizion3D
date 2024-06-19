@@ -1,0 +1,70 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 580,
+				"parent" : 0
+			}
+		]
+	},
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "tint-lint::@27b0285d2935e1efd365",
+	"name" : "tint-lint",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build",
+		"source" : "build/_deps/dawn-src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/CMakeFiles/tint-lint",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/CMakeFiles/tint-lint.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

@@ -1,0 +1,9 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=custom
+command=cd;/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src;&&;git;init;&&;git;fetch;--depth=1;https://dawn.googlesource.com/dawn;chromium/6512;&&;git;reset;--hard;FETCH_HEAD
+source_dir=/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src
+work_dir=/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-subbuild/dawn-populate-prefix/src
+

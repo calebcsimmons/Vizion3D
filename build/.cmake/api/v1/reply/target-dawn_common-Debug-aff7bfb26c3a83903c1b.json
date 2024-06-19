@@ -1,0 +1,744 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/dawn-build/src/dawn/common/libdawn_common.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"target_compile_options",
+			"common_compile_options",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/src/dawn/common/CMakeLists.txt",
+			"build/_deps/dawn-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 44,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 130,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 387,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 123,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=c++17 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-rtti"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-deprecated-builtins"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-unknown-warning-option"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-switch-default"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_ASSERTS"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_BACKEND_METAL"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src/dawn/partition_alloc"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/abseil-cpp"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				6,
+				14,
+				17,
+				19,
+				24,
+				27,
+				29,
+				42,
+				44,
+				49,
+				52,
+				59,
+				68,
+				70
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "absl_log_severity::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_raw_logging_internal::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_throw_delegate::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_headers::@8e35327a9a44fb1c9feb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawncpp_headers::@8e35327a9a44fb1c9feb"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "dawn_common::@2ec0d29f083c906cd78c",
+	"name" : "dawn_common",
+	"nameOnDisk" : "libdawn_common.a",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/src/dawn/common",
+		"source" : "build/_deps/dawn-src/src/dawn/common"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				4,
+				5,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				15,
+				16,
+				18,
+				20,
+				21,
+				22,
+				23,
+				25,
+				26,
+				28,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				43,
+				45,
+				46,
+				47,
+				48,
+				50,
+				51,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				69,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				6,
+				14,
+				17,
+				19,
+				24,
+				27,
+				29,
+				42,
+				44,
+				49,
+				52,
+				59,
+				68,
+				70
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				71,
+				72
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/common/Version_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/common/GPUInfo_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/common/GPUInfo_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/AlignedAlloc.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/AlignedAlloc.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Alloc.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Assert.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Assert.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/BitSetIterator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Compiler.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Constants.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ContentLessObjectCache.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ContentLessObjectCacheable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/CoreFoundationRef.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/DynamicLib.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/DynamicLib.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Enumerator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/FutureUtils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/FutureUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/GPUInfo.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/GPUInfo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/HashUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/IOKitRef.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/LinkedList.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Log.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Log.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/MatchVariant.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Math.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Math.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Mutex.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Mutex.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/MutexProtected.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/NSRef.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/NonCopyable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/NonMovable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Numeric.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/PlacementAllocated.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Platform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Preprocessor.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Range.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Ref.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/RefBase.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/RefCounted.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/RefCounted.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Result.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/Result.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SerialMap.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SerialQueue.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SerialStorage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SlabAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SlabAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/StackAllocated.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SystemUtils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SystemUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/TypeTraits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/TypedInteger.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/UnderlyingType.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/WGSLFeatureMapping.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/WeakRef.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/WeakRefSupport.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/WeakRefSupport.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ityp_array.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ityp_bitset.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ityp_span.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ityp_stack_vec.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/ityp_vector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/vulkan_platform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 5,
+			"path" : "build/_deps/dawn-src/src/dawn/common/xlib_with_undefs.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/IOSurfaceUtils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/src/dawn/common/IOSurfaceUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/common/SystemUtils_mac.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/common/Version_autogen.h.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/common/GPUInfo_autogen.h.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_enum_class_bitmasks.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp_print.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/webgpu/webgpu_cpp_chained_struct.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/dawn_proc_table.h",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -1,0 +1,110 @@
+{
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/src/dawn/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 80,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 81,
+				"parent" : 0
+			}
+		]
+	},
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "dawncpp_headers::@8e35327a9a44fb1c9feb",
+	"name" : "dawncpp_headers",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/src/dawn",
+		"source" : "build/_deps/dawn-src/src/dawn"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				6
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_enum_class_bitmasks.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp_print.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/include/webgpu/webgpu_cpp_chained_struct.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp.h.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "INTERFACE_LIBRARY"
+}

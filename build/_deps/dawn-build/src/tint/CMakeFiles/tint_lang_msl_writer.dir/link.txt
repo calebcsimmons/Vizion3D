@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_msl_writer.a CMakeFiles/tint_lang_msl_writer.dir/lang/msl/writer/output.cc.o CMakeFiles/tint_lang_msl_writer.dir/lang/msl/writer/writer.cc.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_msl_writer.a

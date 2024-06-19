@@ -1,0 +1,336 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/dawn-build/src/dawn/platform/libdawn_platform.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"target_compile_options",
+			"common_compile_options",
+			"target_compile_definitions",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/src/dawn/platform/CMakeLists.txt",
+			"build/_deps/dawn-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 387,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=c++17 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-rtti"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-deprecated-builtins"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-unknown-warning-option"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-switch-default"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_ASSERTS"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_BACKEND_METAL"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "DAWN_PLATFORM_IMPLEMENTATION"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src/dawn/partition_alloc"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/src"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				5,
+				7
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "absl_log_severity::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_raw_logging_internal::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_throw_delegate::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_headers::@8e35327a9a44fb1c9feb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawncpp_headers::@8e35327a9a44fb1c9feb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_common::@2ec0d29f083c906cd78c"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "dawn_platform::@3091d9df4e50f1bf86cf",
+	"name" : "dawn_platform",
+	"nameOnDisk" : "libdawn_platform.a",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/src/dawn/platform",
+		"source" : "build/_deps/dawn-src/src/dawn/platform"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				4,
+				6,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				5,
+				7
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/include/dawn/platform/DawnPlatform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/include/dawn/platform/dawn_platform_export.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/DawnPlatform.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/WorkerThread.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/WorkerThread.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/metrics/HistogramMacros.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/metrics/HistogramMacros.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/tracing/EventTracer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/tracing/EventTracer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 6,
+			"path" : "build/_deps/dawn-src/src/dawn/platform/tracing/TraceEvent.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/dawn_proc_table.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_enum_class_bitmasks.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp_print.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/webgpu/webgpu_cpp_chained_struct.h",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

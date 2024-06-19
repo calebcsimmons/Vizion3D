@@ -1,0 +1,2603 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/dawn-build/src/dawn/native/libdawn_native.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"target_compile_options",
+			"common_compile_options",
+			"target_compile_definitions",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/src/dawn/native/CMakeLists.txt",
+			"build/_deps/dawn-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 252,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 387,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 267,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 487,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 743,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 754,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=c++17 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-fno-rtti"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-deprecated-builtins"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-unknown-warning-option"
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-Wno-switch-default"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_ASSERTS"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "DAWN_ENABLE_BACKEND_METAL"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "DAWN_NATIVE_IMPLEMENTATION"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_GLSL_VALIDATOR=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_GLSL_WRITER=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_HLSL_WRITER=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_IR_BINARY=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_IS_LINUX=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_IS_MAC=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_IS_WIN=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_MSL_WRITER=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_SPV_READER=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_SPV_WRITER=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_SYNTAX_TREE_WRITER=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_TINTD=0"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_WGSL_READER=1"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "TINT_BUILD_WGSL_WRITER=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/abseil-cpp"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src/dawn/partition_alloc"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/gen/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/spirv-tools/src/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/spirv-headers/src/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					2
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				1,
+				4,
+				5,
+				7,
+				11,
+				12,
+				14,
+				16,
+				17,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				32,
+				34,
+				36,
+				38,
+				40,
+				42,
+				44,
+				46,
+				48,
+				50,
+				52,
+				54,
+				56,
+				59,
+				63,
+				65,
+				67,
+				69,
+				71,
+				73,
+				75,
+				77,
+				79,
+				81,
+				83,
+				85,
+				87,
+				89,
+				93,
+				95,
+				97,
+				99,
+				102,
+				104,
+				106,
+				108,
+				110,
+				112,
+				114,
+				116,
+				119,
+				121,
+				124,
+				126,
+				128,
+				130,
+				132,
+				134,
+				136,
+				138,
+				140,
+				142,
+				144,
+				146,
+				148,
+				150,
+				152,
+				154,
+				157,
+				159,
+				161,
+				163,
+				165,
+				169,
+				171,
+				173,
+				175,
+				178,
+				180,
+				182,
+				184,
+				186,
+				188,
+				191,
+				193,
+				195,
+				197,
+				200,
+				206,
+				208,
+				210,
+				214,
+				216,
+				218,
+				220,
+				222,
+				224,
+				226,
+				228,
+				230,
+				232,
+				234,
+				237,
+				239,
+				241,
+				243,
+				245,
+				247,
+				249,
+				251,
+				253,
+				255,
+				257,
+				259,
+				260,
+				261
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "SPIRV-Tools-static::@5494a50cbdab6eef16c5"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "SPIRV-Tools-opt::@b38ebcf08b73a58663f3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_log_severity::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_raw_logging_internal::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_spinlock_wait::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_malloc_internal::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_base::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_throw_delegate::@6d6184c3911b3f02e9a3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_hashtablez_sampler::@e95c9138ec1148dfebb5"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_raw_hash_set::@e95c9138ec1148dfebb5"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_crc_cpu_detect::@b930bc76aa0866101e1e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_crc_internal::@b930bc76aa0866101e1e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_crc32c::@b930bc76aa0866101e1e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_crc_cord_state::@b930bc76aa0866101e1e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_stacktrace::@75da272c93c870affe4a"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_symbolize::@75da272c93c870affe4a"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_debugging_internal::@75da272c93c870affe4a"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_demangle_internal::@75da272c93c870affe4a"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_hash::@adf1eaa2faab5476fbb6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_city::@adf1eaa2faab5476fbb6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_low_level_hash::@adf1eaa2faab5476fbb6"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_int128::@f27257b74fc992f6532e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_exponential_biased::@4b53272e95c4e1839329"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_string_view::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_strings::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_strings_internal::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_str_format_internal::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_cord_internal::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_cordz_functions::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_cordz_handle::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_cordz_info::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_cord::@b47bacaf62b03dffaa3d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_graphcycles_internal::@ac8c2923951da0a278a7"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_kernel_timeout_internal::@ac8c2923951da0a278a7"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_synchronization::@ac8c2923951da0a278a7"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_time::@83a33c4f7f6cd8aba86d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_civil_time::@83a33c4f7f6cd8aba86d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_time_zone::@83a33c4f7f6cd8aba86d"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_bad_optional_access::@f8cc82cda15ea6fe97ab"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "absl_bad_variant_access::@f8cc82cda15ea6fe97ab"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_api_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_api_options::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_api::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_constant::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_intrinsic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_ir_transform_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_ir_transform::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_ir::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core_type::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_core::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_hlsl_writer_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_intrinsic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_ir::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer_ast_printer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer_ast_raise::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer_printer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer_raise::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl_writer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_msl::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_ast_transform::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_ast::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_features::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_helpers::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_inspector::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_intrinsic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_ir::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_program::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_reader_lower::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_reader_parser::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_reader_program_to_ir::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_reader::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_resolver::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_sem::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_writer_ast_printer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_writer_ir_to_program::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_writer_raise::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_writer_syntax_tree_printer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl_writer::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_lang_wgsl::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_containers::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_debug::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_diagnostic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_generator::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_ice::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_id::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_macros::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_math::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_memory::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_reflection::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_result::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_rtti::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_strconv::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_symbol::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_system::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_text::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "tint_utils_traits::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_headers::@8e35327a9a44fb1c9feb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawncpp_headers::@8e35327a9a44fb1c9feb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_common::@2ec0d29f083c906cd78c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "dawn_platform::@3091d9df4e50f1bf86cf"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "dawn_native::@6bc13365067dc5aa7b1c",
+	"name" : "dawn_native",
+	"nameOnDisk" : "libdawn_native.a",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/src/dawn/native",
+		"source" : "build/_deps/dawn-src/src/dawn/native"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				3,
+				6,
+				8,
+				9,
+				10,
+				13,
+				15,
+				18,
+				20,
+				22,
+				24,
+				26,
+				28,
+				30,
+				31,
+				33,
+				35,
+				37,
+				39,
+				41,
+				43,
+				45,
+				47,
+				49,
+				51,
+				53,
+				55,
+				57,
+				58,
+				60,
+				61,
+				62,
+				64,
+				66,
+				68,
+				70,
+				72,
+				74,
+				76,
+				78,
+				80,
+				82,
+				84,
+				86,
+				88,
+				90,
+				91,
+				92,
+				94,
+				96,
+				98,
+				100,
+				101,
+				103,
+				105,
+				107,
+				109,
+				111,
+				113,
+				115,
+				117,
+				118,
+				120,
+				122,
+				123,
+				125,
+				127,
+				129,
+				131,
+				133,
+				135,
+				137,
+				139,
+				141,
+				143,
+				145,
+				147,
+				149,
+				151,
+				153,
+				155,
+				156,
+				158,
+				160,
+				162,
+				164,
+				166,
+				167,
+				168,
+				170,
+				172,
+				174,
+				176,
+				177,
+				179,
+				181,
+				183,
+				185,
+				187,
+				189,
+				190,
+				192,
+				194,
+				196,
+				198,
+				199,
+				201,
+				202,
+				203,
+				204,
+				205,
+				207,
+				209,
+				211,
+				212,
+				213,
+				215,
+				217,
+				219,
+				221,
+				223,
+				225,
+				227,
+				229,
+				231,
+				233,
+				235,
+				236,
+				238,
+				240,
+				242,
+				244,
+				246,
+				248,
+				250,
+				252,
+				254,
+				256,
+				258,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				271,
+				272,
+				273,
+				274
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1,
+				4,
+				5,
+				7,
+				11,
+				12,
+				14,
+				16,
+				17,
+				19,
+				21,
+				23,
+				25,
+				27,
+				29,
+				32,
+				34,
+				36,
+				38,
+				40,
+				42,
+				44,
+				46,
+				48,
+				50,
+				52,
+				54,
+				56,
+				59,
+				63,
+				65,
+				67,
+				69,
+				71,
+				73,
+				75,
+				77,
+				79,
+				81,
+				83,
+				85,
+				87,
+				89,
+				93,
+				95,
+				97,
+				99,
+				102,
+				104,
+				106,
+				108,
+				110,
+				112,
+				114,
+				116,
+				119,
+				121,
+				124,
+				126,
+				128,
+				130,
+				132,
+				134,
+				136,
+				138,
+				140,
+				142,
+				144,
+				146,
+				148,
+				150,
+				152,
+				154,
+				157,
+				159,
+				161,
+				163,
+				165,
+				169,
+				171,
+				173,
+				175,
+				178,
+				180,
+				182,
+				184,
+				186,
+				188,
+				191,
+				193,
+				195,
+				197,
+				200,
+				206,
+				208,
+				210,
+				214,
+				216,
+				218,
+				220,
+				222,
+				224,
+				226,
+				228,
+				230,
+				232,
+				234,
+				237,
+				239,
+				241,
+				243,
+				245,
+				247,
+				249,
+				251,
+				253,
+				255,
+				257,
+				259,
+				260,
+				261
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				262
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ValidationUtils_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ValidationUtils_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/dawn_platform_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/wgpu_structs_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/wgpu_structs_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ProcTable.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ChainUtils_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ChainUtils_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/Features_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/Features_autogen.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/webgpu_absl_format_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/webgpu_absl_format_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/webgpu_StreamImpl_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ObjectType_autogen.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ObjectType_autogen.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Adapter.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Adapter.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ApplyClearColorValueWithDrawHelper.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ApplyClearColorValueWithDrawHelper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/AsyncTask.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/AsyncTask.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/AttachmentState.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/AttachmentState.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BackendConnection.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BackendConnection.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroup.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroup.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroupLayout.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroupLayout.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroupLayoutInternal.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroupLayoutInternal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindGroupTracker.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindingInfo.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BindingInfo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitBufferToDepthStencil.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitBufferToDepthStencil.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitColorToColorWithDraw.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitColorToColorWithDraw.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitDepthToDepth.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitDepthToDepth.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitTextureToBuffer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlitTextureToBuffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Blob.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Blob.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlobCache.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BlobCache.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BuddyAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BuddyAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BuddyMemoryAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/BuddyMemoryAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Buffer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CachedObject.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CachedObject.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CacheKey.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CacheKey.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CacheRequest.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CacheRequest.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CacheResult.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CallbackTaskManager.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CallbackTaskManager.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ChainUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ChainUtilsImpl.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandBuffer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandBuffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandBufferStateTracker.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandBufferStateTracker.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandValidation.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CommandValidation.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Commands.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Commands.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CompilationMessages.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CompilationMessages.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ComputePassEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ComputePassEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ComputePipeline.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ComputePipeline.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CopyTextureForBrowserHelper.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CopyTextureForBrowserHelper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CreatePipelineAsyncEvent.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/CreatePipelineAsyncEvent.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Device.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Device.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/DynamicUploader.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/DynamicUploader.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EncodingContext.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EncodingContext.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EnumClassBitmasks.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EnumMaskIterator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Error.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Error.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorData.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorData.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorInjector.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorInjector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorScope.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorScope.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ErrorSink.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EventManager.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/EventManager.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Features.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Features.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ExternalTexture.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ExternalTexture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ExecutionQueue.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ExecutionQueue.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/IndirectDrawMetadata.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/IndirectDrawMetadata.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/IndirectDrawValidationEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/IndirectDrawValidationEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ObjectContentHasher.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ObjectContentHasher.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Format.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Format.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Forward.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Instance.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Instance.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/InternalPipelineStore.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/InternalPipelineStore.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/IntegerTypes.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Limits.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Limits.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SystemEvent.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SystemEvent.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SystemHandle.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SystemHandle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ObjectBase.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ObjectBase.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PassResourceUsage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PassResourceUsage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PassResourceUsageTracker.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PassResourceUsageTracker.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PerStage.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PerStage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PhysicalDevice.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PhysicalDevice.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Pipeline.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Pipeline.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PipelineCache.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PipelineCache.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PipelineLayout.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PipelineLayout.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PooledResourceMemoryAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/PooledResourceMemoryAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ProgrammableEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ProgrammableEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/QueryHelper.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/QueryHelper.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/QuerySet.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/QuerySet.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Queue.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Queue.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RefCountedWithExternalCount.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderBundle.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderBundle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderBundleEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderBundleEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderEncoderBase.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderEncoderBase.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderPassEncoder.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderPassEncoder.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderPipeline.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RenderPipeline.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ResourceHeap.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ResourceHeapAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ResourceMemoryAllocation.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ResourceMemoryAllocation.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RingBufferAllocator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/RingBufferAllocator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Sampler.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Sampler.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ScratchBuffer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ScratchBuffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Serializable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ShaderModule.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ShaderModule.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedBufferMemory.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedBufferMemory.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedFence.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedFence.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedResourceMemory.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedResourceMemory.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedTextureMemory.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SharedTextureMemory.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Subresource.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Subresource.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SubresourceStorage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Surface.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Surface.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SwapChain.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/SwapChain.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Texture.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/TintUtils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/TintUtils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/ToBackend.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Toggles.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Toggles.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/UsageValidationMode.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/VisitableMembers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/WaitAnySystemEvent.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/dawn_platform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/webgpu_absl_format.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/webgpu_absl_format.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/BlobSource.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/BlobSource.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/ByteVectorSink.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/ByteVectorSink.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/Sink.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/Source.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/Stream.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/stream/Stream.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 7,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/utils/WGPUHelpers.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 7,
+			"path" : "build/_deps/dawn-src/src/dawn/native/utils/WGPUHelpers.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/Surface_metal.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BackendMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BackendMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BindGroupLayoutMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BindGroupLayoutMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BindGroupMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BindGroupMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BufferMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/BufferMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/CommandBufferMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/CommandBufferMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/CommandRecordingContext.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/CommandRecordingContext.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/ComputePipelineMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/ComputePipelineMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/DeviceMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/DeviceMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/Forward.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/PhysicalDeviceMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/PhysicalDeviceMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/PipelineLayoutMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/PipelineLayoutMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/QueueMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/QueueMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/QuerySetMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/QuerySetMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/RenderPipelineMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/RenderPipelineMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SamplerMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SamplerMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/ShaderModuleMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/ShaderModuleMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SharedFenceMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SharedFenceMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SharedTextureMemoryMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SharedTextureMemoryMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SwapChainMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/SwapChainMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/TextureMTL.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/TextureMTL.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 8,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/UtilsMetal.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 8,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/UtilsMetal.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 9,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/DawnNative.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 10,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/dawn/native/metal/MetalBackend.mm",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/_deps/dawn-build/gen/src/dawn/native/ValidationUtils_autogen.h.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu_enum_class_bitmasks.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu_cpp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu_cpp_print.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/webgpu/webgpu_cpp_chained_struct.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/webgpu/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/wire/client/webgpu.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-build/gen/include/dawn/dawn_proc_table.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/dawn/platform/DawnPlatform.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "build/_deps/dawn-src/include/dawn/platform/dawn_platform_export.h",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

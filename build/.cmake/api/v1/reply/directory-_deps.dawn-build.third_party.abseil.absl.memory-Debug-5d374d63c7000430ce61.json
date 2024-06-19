@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/third_party/abseil/absl/memory",
+		"source" : "build/_deps/dawn-src/third_party/abseil-cpp/absl/memory"
+	}
+}

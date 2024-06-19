@@ -1,0 +1,697 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/dawn-build/src/tint/libtint_lang_wgsl_resolver.a"
+		}
+	],
+	"backtrace" : 10,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"tint_add_target",
+			"include",
+			"target_link_libraries",
+			"tint_target_add_dependencies",
+			"target_compile_options",
+			"common_compile_options",
+			"tint_core_compile_options",
+			"tint_default_compile_options",
+			"tint_lib_compile_options",
+			"target_compile_definitions",
+			"target_include_directories",
+			"target_sources"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/src/tint/CMakeLists.txt",
+			"build/_deps/dawn-src/src/tint/lang/wgsl/resolver/BUILD.cmake",
+			"build/_deps/dawn-src/src/tint/lang/wgsl/BUILD.cmake",
+			"build/_deps/dawn-src/src/tint/lang/BUILD.cmake",
+			"build/_deps/dawn-src/src/tint/BUILD.cmake",
+			"build/_deps/dawn-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 668,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 4,
+				"line" : 39,
+				"parent" : 2
+			},
+			{
+				"file" : 3,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 3,
+				"line" : 42,
+				"parent" : 4
+			},
+			{
+				"file" : 2,
+				"parent" : 5
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 47,
+				"parent" : 6
+			},
+			{
+				"file" : 1,
+				"parent" : 7
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 41,
+				"parent" : 8
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 416,
+				"parent" : 9
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 60,
+				"parent" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 496,
+				"parent" : 11
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 417,
+				"parent" : 9
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 217,
+				"parent" : 13
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 79,
+				"parent" : 14
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 75,
+				"parent" : 15
+			},
+			{
+				"command" : 5,
+				"file" : 5,
+				"line" : 387,
+				"parent" : 16
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 116,
+				"parent" : 14
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 123,
+				"parent" : 14
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 125,
+				"parent" : 14
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 60,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 61,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 64,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 65,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 66,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 15
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 15
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 15
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 15
+			},
+			{
+				"command" : 12,
+				"file" : 0,
+				"line" : 449,
+				"parent" : 9
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=c++17 -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-fno-rtti"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-Wno-deprecated-builtins"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-Wno-unknown-warning-option"
+				},
+				{
+					"backtrace" : 17,
+					"fragment" : "-Wno-switch-default"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-pedantic-errors"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wno-documentation-unknown-command"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wno-padded"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wno-switch-enum"
+				},
+				{
+					"backtrace" : 18,
+					"fragment" : "-Wno-unknown-pragmas"
+				},
+				{
+					"backtrace" : 19,
+					"fragment" : "-fstandalone-debug"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-c++98-compat"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-c++98-compat-pedantic"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-format-pedantic"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-gnu-zero-variadic-macro-arguments"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-poison-system-directories"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-return-std-move-in-c++11"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-undefined-var-template"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-unsafe-buffer-usage"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Wno-used-but-marked-unused"
+				},
+				{
+					"backtrace" : 20,
+					"fragment" : "-Weverything"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 21,
+					"define" : "TINT_BUILD_GLSL_VALIDATOR=1"
+				},
+				{
+					"backtrace" : 22,
+					"define" : "TINT_BUILD_GLSL_WRITER=0"
+				},
+				{
+					"backtrace" : 23,
+					"define" : "TINT_BUILD_HLSL_WRITER=0"
+				},
+				{
+					"backtrace" : 24,
+					"define" : "TINT_BUILD_IR_BINARY=0"
+				},
+				{
+					"backtrace" : 25,
+					"define" : "TINT_BUILD_IS_LINUX=0"
+				},
+				{
+					"backtrace" : 26,
+					"define" : "TINT_BUILD_IS_MAC=1"
+				},
+				{
+					"backtrace" : 27,
+					"define" : "TINT_BUILD_IS_WIN=0"
+				},
+				{
+					"backtrace" : 28,
+					"define" : "TINT_BUILD_MSL_WRITER=1"
+				},
+				{
+					"backtrace" : 29,
+					"define" : "TINT_BUILD_SPV_READER=0"
+				},
+				{
+					"backtrace" : 30,
+					"define" : "TINT_BUILD_SPV_WRITER=0"
+				},
+				{
+					"backtrace" : 31,
+					"define" : "TINT_BUILD_SYNTAX_TREE_WRITER=0"
+				},
+				{
+					"backtrace" : 32,
+					"define" : "TINT_BUILD_TINTD=0"
+				},
+				{
+					"backtrace" : 33,
+					"define" : "TINT_BUILD_WGSL_READER=1"
+				},
+				{
+					"backtrace" : 34,
+					"define" : "TINT_BUILD_WGSL_WRITER=1"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 35,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					10
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				8,
+				10,
+				12,
+				14
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 12,
+			"id" : "tint_api_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_core_constant::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_core_intrinsic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_core_type::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_core::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_ast::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_common::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_features::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_intrinsic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_program::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl_sem::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_lang_wgsl::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_containers::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_debug::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_diagnostic::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_ice::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_id::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_macros::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_math::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_memory::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_reflection::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_result::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_rtti::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_symbol::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_system::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_text::@790f5bd636fa23e29d43"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "tint_utils_traits::@790f5bd636fa23e29d43"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "Dawn"
+	},
+	"id" : "tint_lang_wgsl_resolver::@790f5bd636fa23e29d43",
+	"name" : "tint_lang_wgsl_resolver",
+	"nameOnDisk" : "libtint_lang_wgsl_resolver.a",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/src/tint",
+		"source" : "build/_deps/dawn-src/src/tint"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				4,
+				6,
+				8,
+				10,
+				12,
+				14
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1,
+				3,
+				5,
+				7,
+				9,
+				11,
+				13,
+				15
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/dependency_graph.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/dependency_graph.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/incomplete_type.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/incomplete_type.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/resolve.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/resolve.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/resolver.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/resolver.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/sem_helper.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/sem_helper.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/uniformity.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/uniformity.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/unresolved_identifier.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/unresolved_identifier.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 37,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/validator.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 37,
+			"path" : "build/_deps/dawn-src/src/tint/lang/wgsl/resolver/validator.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

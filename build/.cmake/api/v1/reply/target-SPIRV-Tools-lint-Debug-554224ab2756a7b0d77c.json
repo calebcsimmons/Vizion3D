@@ -1,0 +1,307 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/dawn-build/third_party/spirv-tools/source/lint/libSPIRV-Tools-lint.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"add_compile_options",
+			"target_compile_options",
+			"spvtools_default_compile_options",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/CMakeLists.txt",
+			"build/_deps/dawn-src/third_party/spirv-tools/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 329,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 358,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 204,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 207,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 227,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 150,
+				"parent" : 4
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 61,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 146,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-std=c++17 -g -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				},
+				{
+					"backtrace" : 5,
+					"fragment" : "-DSPIRV_CHECK_CONTEXT"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-Wextra-semi"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wall"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wextra"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wnon-virtual-dtor"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-missing-field-initializers"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Wno-self-assign"
+				},
+				{
+					"backtrace" : 8,
+					"fragment" : "-Werror"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wno-long-long"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wshadow"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wundef"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wconversion"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-Wno-sign-conversion"
+				},
+				{
+					"backtrace" : 9,
+					"fragment" : "-fno-exceptions"
+				},
+				{
+					"backtrace" : 10,
+					"fragment" : "-ftemplate-depth=1024"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 11,
+					"define" : "SPIRV_COLOR_TERMINAL"
+				},
+				{
+					"backtrace" : 12,
+					"define" : "SPIRV_MAC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 13,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/spirv-tools/src"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/spirv-tools/src/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-src/third_party/spirv-headers/src/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/dawn-build/third_party/spirv-tools"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "SPIRV-Tools-static::@5494a50cbdab6eef16c5"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "SPIRV-Tools-opt::@b38ebcf08b73a58663f3"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "SPIRV-Tools libraries"
+	},
+	"id" : "SPIRV-Tools-lint::@4a99e4a7bb28d22f6249",
+	"name" : "SPIRV-Tools-lint",
+	"nameOnDisk" : "libSPIRV-Tools-lint.a",
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/third_party/spirv-tools/source/lint",
+		"source" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/divergence_analysis.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/lints.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/linter.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/divergence_analysis.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/dawn-src/third_party/spirv-tools/src/source/lint/lint_divergent_derivatives.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

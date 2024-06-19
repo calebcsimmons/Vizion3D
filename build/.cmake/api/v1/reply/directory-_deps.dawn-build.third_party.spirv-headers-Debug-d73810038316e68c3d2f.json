@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/dawn-build/third_party/spirv-headers",
+		"source" : "build/_deps/dawn-src/third_party/spirv-headers/src"
+	}
+}
