@@ -11,10 +11,10 @@ project(
 add_executable(App main.cpp)
 
 # Subdirectories
-add_subdirectory(webGPU)
+add_subdirectory(webgpu)
 
 # Dependencies
-target_link_libraries(App PRIVATE webGPU)
+target_link_libraries(App PRIVATE webgpu)
 
 # Set target properties
 set_target_properties(App PROPERTIES
@@ -36,4 +36,10 @@ if (XCODE)
         XCODE_GENERATE_SCHEME ON
         XCODE_SCHEME_ENABLE_GPU_FRAME_CAPTURE_MODE "Metal"
     )
+endif()
+
+# Emscripten options
+if (EMSCRIPTEN)
+	# Generate an HTML
+	set_target_properties(App PROPERTIES SUFFIX ".html")
 endif()

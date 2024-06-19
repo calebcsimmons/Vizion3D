@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles /Users/calebsimmons/software-development/Vizion3D/build/webgpu//CMakeFiles/progress.marks
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/all
+	cd /Users/calebsimmons/software-development/Vizion3D/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-build//CMakeFiles/progress.marks
+	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/webgpu-backend-wgpu-build/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/clean
+	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/webgpu-backend-wgpu-build/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,12 +103,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/preinstall
+	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/webgpu-backend-wgpu-build/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/preinstall
+	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/webgpu-backend-wgpu-build/preinstall
 .PHONY : preinstall/fast
 
 # clear depends

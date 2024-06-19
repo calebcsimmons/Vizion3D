@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdawn_platform.a CMakeFiles/dawn_platform.dir/DawnPlatform.cpp.o CMakeFiles/dawn_platform.dir/WorkerThread.cpp.o CMakeFiles/dawn_platform.dir/metrics/HistogramMacros.cpp.o CMakeFiles/dawn_platform.dir/tracing/EventTracer.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdawn_platform.a

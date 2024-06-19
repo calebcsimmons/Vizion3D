@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_utils_rtti.a CMakeFiles/tint_utils_rtti.dir/utils/rtti/castable.cc.o CMakeFiles/tint_utils_rtti.dir/utils/rtti/switch.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_utils_rtti.a

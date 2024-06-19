@@ -92,6 +92,7 @@ App_EXTERNAL_OBJECTS =
 
 App: CMakeFiles/App.dir/main.cpp.o
 App: CMakeFiles/App.dir/build.make
+App: _deps/webgpu-backend-wgpu-src/bin/macos-aarch64/libwgpu_native.dylib
 App: CMakeFiles/App.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable App"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/App.dir/link.txt --verbose=$(VERBOSE)

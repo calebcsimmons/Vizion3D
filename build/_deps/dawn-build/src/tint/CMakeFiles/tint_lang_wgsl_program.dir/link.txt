@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_program.a CMakeFiles/tint_lang_wgsl_program.dir/lang/wgsl/program/clone_context.cc.o CMakeFiles/tint_lang_wgsl_program.dir/lang/wgsl/program/program.cc.o CMakeFiles/tint_lang_wgsl_program.dir/lang/wgsl/program/program_builder.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_program.a

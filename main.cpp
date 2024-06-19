@@ -2,9 +2,6 @@
 #include <webgpu/webgpu.h>
 #include <iostream>
 
-// Defines
-#define WEBGPU_BACKEND_DAWN
-
 int main (int, char**) {
 
     // Descriptor

@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libGenericCodeGen.a CMakeFiles/GenericCodeGen.dir/GenericCodeGen/CodeGen.cpp.o CMakeFiles/GenericCodeGen.dir/GenericCodeGen/Link.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libGenericCodeGen.a

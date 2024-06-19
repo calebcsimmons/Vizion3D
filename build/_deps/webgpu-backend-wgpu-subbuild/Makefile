@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.6/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/calebsimmons/software-development/Vizion3D
+CMAKE_SOURCE_DIR = /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/calebsimmons/software-development/Vizion3D/build
+CMAKE_BINARY_DIR = /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-subbuild
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles /Users/calebsimmons/software-development/Vizion3D/build/webgpu//CMakeFiles/progress.marks
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-subbuild/CMakeFiles /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-subbuild//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-subbuild/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -103,18 +103,31 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named webgpu-backend-wgpu-populate
+
+# Build rule for target.
+webgpu-backend-wgpu-populate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 webgpu-backend-wgpu-populate
+.PHONY : webgpu-backend-wgpu-populate
+
+# fast build rule for target.
+webgpu-backend-wgpu-populate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/webgpu-backend-wgpu-populate.dir/build.make CMakeFiles/webgpu-backend-wgpu-populate.dir/build
+.PHONY : webgpu-backend-wgpu-populate/fast
 
 # Help Target
 help:
@@ -124,6 +137,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... webgpu-backend-wgpu-populate"
 .PHONY : help
 
 
@@ -135,6 +149,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/calebsimmons/software-development/Vizion3D/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

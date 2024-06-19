@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_hlsl_writer_helpers.a CMakeFiles/tint_lang_hlsl_writer_helpers.dir/lang/hlsl/writer/helpers/generate_bindings.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_hlsl_writer_helpers.a

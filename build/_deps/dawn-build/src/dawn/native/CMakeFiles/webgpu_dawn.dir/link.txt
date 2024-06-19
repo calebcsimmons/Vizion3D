@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libwebgpu_dawn.a CMakeFiles/webgpu_dawn.dir/__/__/__/gen/src/dawn/native/webgpu_dawn_native_proc.cpp.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libwebgpu_dawn.a

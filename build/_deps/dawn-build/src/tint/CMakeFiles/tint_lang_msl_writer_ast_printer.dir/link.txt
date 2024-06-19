@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_msl_writer_ast_printer.a CMakeFiles/tint_lang_msl_writer_ast_printer.dir/lang/msl/writer/ast_printer/ast_printer.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_msl_writer_ast_printer.a

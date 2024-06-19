@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_core_ir_transform_common.a CMakeFiles/tint_lang_core_ir_transform_common.dir/lang/core/ir/transform/common/referenced_module_vars.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_core_ir_transform_common.a

@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl.a CMakeFiles/tint_lang_wgsl.dir/lang/wgsl/builtin_fn.cc.o CMakeFiles/tint_lang_wgsl.dir/lang/wgsl/diagnostic_rule.cc.o CMakeFiles/tint_lang_wgsl.dir/lang/wgsl/diagnostic_severity.cc.o CMakeFiles/tint_lang_wgsl.dir/lang/wgsl/extension.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl.a

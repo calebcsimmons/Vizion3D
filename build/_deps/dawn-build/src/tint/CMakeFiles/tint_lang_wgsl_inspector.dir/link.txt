@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_inspector.a CMakeFiles/tint_lang_wgsl_inspector.dir/lang/wgsl/inspector/entry_point.cc.o CMakeFiles/tint_lang_wgsl_inspector.dir/lang/wgsl/inspector/inspector.cc.o CMakeFiles/tint_lang_wgsl_inspector.dir/lang/wgsl/inspector/resource_binding.cc.o CMakeFiles/tint_lang_wgsl_inspector.dir/lang/wgsl/inspector/scalar.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_inspector.a

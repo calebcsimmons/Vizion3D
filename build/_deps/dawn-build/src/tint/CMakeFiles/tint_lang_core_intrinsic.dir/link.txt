@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_core_intrinsic.a CMakeFiles/tint_lang_core_intrinsic.dir/lang/core/intrinsic/ctor_conv.cc.o CMakeFiles/tint_lang_core_intrinsic.dir/lang/core/intrinsic/data.cc.o CMakeFiles/tint_lang_core_intrinsic.dir/lang/core/intrinsic/table.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_core_intrinsic.a

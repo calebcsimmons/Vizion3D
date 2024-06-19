@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_spirv_intrinsic.a CMakeFiles/tint_lang_spirv_intrinsic.dir/lang/spirv/intrinsic/data.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_spirv_intrinsic.a

@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_wgsl_ir.a CMakeFiles/tint_lang_wgsl_ir.dir/lang/wgsl/ir/builtin_call.cc.o CMakeFiles/tint_lang_wgsl_ir.dir/lang/wgsl/ir/unary.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_wgsl_ir.a

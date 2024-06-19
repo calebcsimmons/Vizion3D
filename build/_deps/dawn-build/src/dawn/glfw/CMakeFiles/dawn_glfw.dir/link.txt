@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libdawn_glfw.a CMakeFiles/dawn_glfw.dir/utils.cpp.o CMakeFiles/dawn_glfw.dir/utils_metal.mm.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libdawn_glfw.a

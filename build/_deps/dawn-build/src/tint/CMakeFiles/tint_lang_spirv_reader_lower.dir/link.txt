@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libtint_lang_spirv_reader_lower.a CMakeFiles/tint_lang_spirv_reader_lower.dir/lang/spirv/reader/lower/lower.cc.o CMakeFiles/tint_lang_spirv_reader_lower.dir/lang/spirv/reader/lower/shader_io.cc.o CMakeFiles/tint_lang_spirv_reader_lower.dir/lang/spirv/reader/lower/vector_element_pointer.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libtint_lang_spirv_reader_lower.a
