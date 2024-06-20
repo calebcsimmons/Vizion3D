@@ -6,7 +6,7 @@ CXX_DEFINES = -DWEBGPU_BACKEND_WGPU
 
 CXX_INCLUDES = -isystem /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-src/include
 
-CXX_FLAGSarm64 = -std=c++17 -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -Wall -Wextra -pedantic -Werror
+CXX_FLAGSarm64 = -std=c++17 -g -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -Wall -Wextra -pedantic -Werror
 
-CXX_FLAGS = -std=c++17 -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -Wall -Wextra -pedantic -Werror
+CXX_FLAGS = -std=c++17 -g -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -Wall -Wextra -pedantic -Werror
 
