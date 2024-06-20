@@ -1,4 +1,5 @@
 // Includes
+#include <GLFW/glfw3.h>
 #include <webgpu/webgpu.h>
 #include <webgpu/webgpu-utils.cpp>
 #include <iostream>

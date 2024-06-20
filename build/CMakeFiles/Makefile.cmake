@@ -12,16 +12,26 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.29.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.6/CMakeSystem.cmake"
   "_deps/webgpu-backend-wgpu-src/CMakeLists.txt"
+  "/Users/calebsimmons/software-development/Vizion3D/glfw/CMake/glfw3.pc.in"
+  "/Users/calebsimmons/software-development/Vizion3D/glfw/CMake/glfw3Config.cmake.in"
+  "/Users/calebsimmons/software-development/Vizion3D/glfw/CMakeLists.txt"
+  "/Users/calebsimmons/software-development/Vizion3D/glfw/src/CMakeLists.txt"
   "/Users/calebsimmons/software-development/Vizion3D/webgpu/CMakeLists.txt"
   "/Users/calebsimmons/software-development/Vizion3D/webgpu/webgpu.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCXXInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeDependentOption.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeGenericSystem.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeInitializeConfigs.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeLanguageInformation.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakePackageConfigHelpers.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckCSourceCompiles.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckIncludeFile.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/CheckLibraryExists.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
@@ -30,6 +40,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FetchContent.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FetchContent/CMakeLists.cmake.in"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindPackageMessage.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/FindThreads.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/GNUInstallDirs.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
@@ -38,6 +53,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/Darwin.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
   )
 
 # The corresponding makefile is:
@@ -49,6 +65,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw/src/glfw3Config.cmake"
+  "glfw/src/glfw3ConfigVersion.cmake"
+  "glfw/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw/src/glfw3.pc"
+  "glfw/src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/webgpu-backend-wgpu-subbuild/CMakeLists.txt"
   "webgpu/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/webgpu-backend-wgpu-build/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -57,4 +78,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/App.dir/DependInfo.cmake"
+  "glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
   )

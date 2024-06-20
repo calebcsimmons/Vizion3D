@@ -17,7 +17,8 @@
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"glfw/src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -33,19 +34,28 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 17,
+				"line" : 26,
 				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 152,
+				"parent" : 3
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 30,
+				"line" : 40,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 20,
+				"line" : 30,
 				"parent" : 0
 			}
 		]
@@ -59,19 +69,19 @@
 					"fragment" : "-std=c++17 -g -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"fragment" : "-pedantic"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 5,
 					"fragment" : "-Werror"
 				}
 			],
@@ -86,6 +96,10 @@
 			[
 				{
 					"backtrace" : 2,
+					"path" : "/Users/calebsimmons/software-development/Vizion3D/glfw/include"
+				},
+				{
+					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "/Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-src/include"
 				}
@@ -95,7 +109,7 @@
 			{
 				"backtraces" : 
 				[
-					4
+					6
 				],
 				"standard" : "17"
 			},
@@ -103,6 +117,13 @@
 			[
 				0
 			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "glfw::@12507ebf64a5258d241e"
 		}
 	],
 	"id" : "App::@6890427a1f51a3e7e1df",
@@ -124,7 +145,27 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "glfw/src/libglfw3.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "_deps/webgpu-backend-wgpu-src/bin/macos-aarch64/libwgpu_native.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-framework Cocoa",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-framework IOKit",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-framework CoreFoundation",
 				"role" : "libraries"
 			}
 		],

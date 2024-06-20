@@ -11,9 +11,19 @@ project(
 add_executable(App main.cpp)
 
 # Subdirectories
+
+if (NOT EMSCRIPTEN)
+    add_subdirectory(glfw)
+else()
+    # Emscripten has built-in support for GLFW but requires the `-sUSE_GLFW=3` link option:
+    add_library(glfw INTERFACE)
+    target_link_options(glfw INTERFACE -sUSE_GLFW=3)
+endif()
+
 add_subdirectory(webgpu)
 
 # Dependencies
+target_link_libraries(App PRIVATE webgpu glfw)
 target_link_libraries(App PRIVATE webgpu)
 
 # Set target properties
