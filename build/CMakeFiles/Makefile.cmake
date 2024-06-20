@@ -16,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Users/calebsimmons/software-development/Vizion3D/glfw/CMake/glfw3Config.cmake.in"
   "/Users/calebsimmons/software-development/Vizion3D/glfw/CMakeLists.txt"
   "/Users/calebsimmons/software-development/Vizion3D/glfw/src/CMakeLists.txt"
+  "/Users/calebsimmons/software-development/Vizion3D/glfw3webgpu/CMakeLists.txt"
   "/Users/calebsimmons/software-development/Vizion3D/webgpu/CMakeLists.txt"
   "/Users/calebsimmons/software-development/Vizion3D/webgpu/webgpu.cmake"
   "/opt/homebrew/Cellar/cmake/3.29.6/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
@@ -73,6 +74,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "_deps/webgpu-backend-wgpu-subbuild/CMakeLists.txt"
   "webgpu/CMakeFiles/CMakeDirectoryInformation.cmake"
   "_deps/webgpu-backend-wgpu-build/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw3webgpu/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -80,4 +82,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/App.dir/DependInfo.cmake"
   "glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "glfw/src/CMakeFiles/update_mappings.dir/DependInfo.cmake"
+  "glfw3webgpu/CMakeFiles/glfw3webgpu.dir/DependInfo.cmake"
   )

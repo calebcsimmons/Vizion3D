@@ -11,3 +11,6 @@
 /Users/calebsimmons/software-development/Vizion3D/build/webgpu/CMakeFiles/rebuild_cache.dir
 /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-build/CMakeFiles/edit_cache.dir
 /Users/calebsimmons/software-development/Vizion3D/build/_deps/webgpu-backend-wgpu-build/CMakeFiles/rebuild_cache.dir
+/Users/calebsimmons/software-development/Vizion3D/build/glfw3webgpu/CMakeFiles/glfw3webgpu.dir
+/Users/calebsimmons/software-development/Vizion3D/build/glfw3webgpu/CMakeFiles/edit_cache.dir
+/Users/calebsimmons/software-development/Vizion3D/build/glfw3webgpu/CMakeFiles/rebuild_cache.dir

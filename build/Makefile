@@ -155,6 +155,19 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f glfw/src/CMakeFiles/update_mappings.dir/build.make glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+#=============================================================================
+# Target rules for targets named glfw3webgpu
+
+# Build rule for target.
+glfw3webgpu: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw3webgpu
+.PHONY : glfw3webgpu
+
+# fast build rule for target.
+glfw3webgpu/fast:
+	$(MAKE) $(MAKESILENT) -f glfw3webgpu/CMakeFiles/glfw3webgpu.dir/build.make glfw3webgpu/CMakeFiles/glfw3webgpu.dir/build
+.PHONY : glfw3webgpu/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -179,6 +192,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+webgpu-utils.o: webgpu-utils.cpp.o
+.PHONY : webgpu-utils.o
+
+# target to build an object file
+webgpu-utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/webgpu-utils.cpp.o
+.PHONY : webgpu-utils.cpp.o
+
+webgpu-utils.i: webgpu-utils.cpp.i
+.PHONY : webgpu-utils.i
+
+# target to preprocess a source file
+webgpu-utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/webgpu-utils.cpp.i
+.PHONY : webgpu-utils.cpp.i
+
+webgpu-utils.s: webgpu-utils.cpp.s
+.PHONY : webgpu-utils.s
+
+# target to generate assembly for a file
+webgpu-utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/App.dir/build.make CMakeFiles/App.dir/webgpu-utils.cpp.s
+.PHONY : webgpu-utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -190,9 +227,13 @@ help:
 	@echo "... update_mappings"
 	@echo "... App"
 	@echo "... glfw"
+	@echo "... glfw3webgpu"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... webgpu-utils.o"
+	@echo "... webgpu-utils.i"
+	@echo "... webgpu-utils.s"
 .PHONY : help
 
 

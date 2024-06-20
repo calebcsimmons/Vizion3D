@@ -7,49 +7,44 @@ project(
     LANGUAGES CXX C
 )
 
-# Executables
-add_executable(App main.cpp)
-
-# Subdirectories
-
-if (NOT EMSCRIPTEN)
-    add_subdirectory(glfw)
-else()
-    # Emscripten has built-in support for GLFW but requires the `-sUSE_GLFW=3` link option:
-    add_library(glfw INTERFACE)
-    target_link_options(glfw INTERFACE -sUSE_GLFW=3)
-endif()
+# Add glfw
+add_subdirectory(glfw)
 
 add_subdirectory(webgpu)
+# Add a little extension of glfw that connects it to WebGPU
+add_subdirectory(glfw3webgpu)
 
-# Dependencies
-target_link_libraries(App PRIVATE webgpu glfw)
-target_link_libraries(App PRIVATE webgpu)
-
-# Set target properties
-set_target_properties(App PROPERTIES
-    CXX_STANDARD 17
-    CXX_STANDARD_REQUIRED ON
-    CXX_EXTENSIONS OFF
+add_executable(App
+	main.cpp
+	webgpu-utils.h
+	webgpu-utils.cpp
 )
 
-# Set compile options
+# Add glfw and glfw3webgpu as dependencies of our App
+target_link_libraries(App PRIVATE glfw webgpu glfw3webgpu)
+target_copy_webgpu_binaries(App)
+
+set_target_properties(App PROPERTIES
+	CXX_STANDARD 17
+	CXX_STANDARD_REQUIRED ON
+	CXX_EXTENSIONS OFF
+	COMPILE_WARNING_AS_ERROR ON
+)
+
 if (MSVC)
-    target_compile_options(App PRIVATE /W4 /WX)
+	target_compile_options(App PRIVATE /W4)
 else()
-    target_compile_options(App PRIVATE -Wall -Wextra -pedantic -Werror)
+	target_compile_options(App PRIVATE -Wall -Wextra -pedantic)
 endif()
 
-# Xcode specific properties
 if (XCODE)
-    set_target_properties(App PROPERTIES
-        XCODE_GENERATE_SCHEME ON
-        XCODE_SCHEME_ENABLE_GPU_FRAME_CAPTURE_MODE "Metal"
-    )
+	set_target_properties(App PROPERTIES
+		XCODE_GENERATE_SCHEME ON
+		XCODE_SCHEME_ENABLE_GPU_FRAME_CAPTURE_MODE "Metal"
+	)
 endif()
 
-# Emscripten options
 if (EMSCRIPTEN)
-	# Generate an HTML
 	set_target_properties(App PROPERTIES SUFFIX ".html")
+	target_link_options(App PRIVATE -sASYNCIFY)
 endif()
