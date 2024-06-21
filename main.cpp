@@ -13,7 +13,6 @@
 #include <cassert>
 #include <vector>
 
-// Avoid the "wgpu::" prefix in front of all WebGPU symbols
 using namespace wgpu;
 
 // We embbed the source of the shader module here
@@ -54,6 +53,9 @@ public:
 private:
 	TextureView GetNextSurfaceTextureView();
 
+	// Substep of Initialize() that creates the render pipeline
+	void InitializePipeline();
+
 private:
 	// We put here all the variables that are shared between init and main loop
 	GLFWwindow *window;
@@ -61,6 +63,8 @@ private:
 	Queue queue;
 	Surface surface;
 	std::unique_ptr<ErrorCallback> uncapturedErrorCallbackHandle;
+	TextureFormat surfaceFormat = TextureFormat::Undefined;
+	RenderPipeline pipeline;
 };
 
 int main() {
@@ -136,7 +140,7 @@ bool Application::Initialize() {
 	config.width = 640;
 	config.height = 480;
 	config.usage = TextureUsage::RenderAttachment;
-	TextureFormat surfaceFormat = surface.getPreferredFormat(adapter);
+	surfaceFormat = surface.getPreferredFormat(adapter);
 	config.format = surfaceFormat;
 
 	// And we do not need any particular view format:
@@ -150,7 +154,9 @@ bool Application::Initialize() {
 
 	// Release the adapter only after it has been fully utilized
 	adapter.release();
-	
+
+	InitializePipeline();
+
 	return true;
 }
 
@@ -195,8 +201,13 @@ void Application::MainLoop() {
 	renderPassDesc.depthStencilAttachment = nullptr;
 	renderPassDesc.timestampWrites = nullptr;
 
-	// Create the render pass and end it afterwards
 	RenderPassEncoder renderPass = encoder.beginRenderPass(renderPassDesc);
+
+	// Select which render pipeline to use
+	renderPass.setPipeline(pipeline);
+	// Draw 1 instance of a 3-vertices shape
+	renderPass.draw(3, 1, 0, 0);
+
 	renderPass.end();
 	renderPass.release();
 
