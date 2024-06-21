@@ -1,9 +1,6 @@
-#include "webgpu-utils.h"
-
-#include <webgpu/webgpu.h>
-#ifdef WEBGPU_BACKEND_WGPU
-#  include <webgpu/wgpu.h>
-#endif // WEBGPU_BACKEND_WGPU
+// Include the C++ wrapper instead of the raw header(s)
+#define WEBGPU_CPP_IMPLEMENTATION
+#include <webgpu/webgpu.hpp>
 
 #include <GLFW/glfw3.h>
 #include <glfw3webgpu.h>
@@ -180,6 +177,12 @@ void Application::MainLoop() {
 
 	// Create the render pass and end it immediately (we only clear the screen but do not draw anything)
 	WGPURenderPassEncoder renderPass = wgpuCommandEncoderBeginRenderPass(encoder, &renderPassDesc);
+
+	// Select which render pipeline to use
+	renderPass.setPipeline(pipeline);
+	// Draw 1 instance of a 3-vertices shape
+	renderPass.draw(3, 1, 0, 0);
+
 	wgpuRenderPassEncoderEnd(renderPass);
 	wgpuRenderPassEncoderRelease(renderPass);
 
