@@ -62,7 +62,7 @@ private:
 
 	RequiredLimits GetRequiredLimits(Adapter adapter) const;
 
-	// Demonstrate buffer operations and mapping during initialization
+	// Buffer 
 	void InitializeBuffers();
 
 private:
@@ -228,8 +228,12 @@ void Application::MainLoop() {
 
 	// Set the render pipeline for rendering
 	renderPass.setPipeline(pipeline);
-	// Draw 1 instance of a 3-vertices shape
-	renderPass.draw(3, 1, 0, 0);
+
+	// Set vertex buffer while encoding the render pass
+	renderPass.setVertexBuffer(0, vertexBuffer, 0, vertexBuffer.getSize());
+
+	// We use the `vertexCount` variable instead of hard-coding the vertex count
+	renderPass.draw(vertexCount, 1, 0, 0);
 
 	// End and release the render pass
 	renderPass.end();
