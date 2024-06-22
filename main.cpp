@@ -17,16 +17,8 @@ using namespace wgpu;
 // Embedded shader module source
 const char* shaderSource = R"(
 @vertex
-fn vs_main(@builtin(vertex_index) in_vertex_index: u32) -> @builtin(position) vec4f {
-	var p = vec2f(0.0, 0.0);
-	if (in_vertex_index == 0u) {
-		p = vec2f(-0.5, -0.5);
-	} else if (in_vertex_index == 1u) {
-		p = vec2f(0.5, -0.5);
-	} else {
-		p = vec2f(0.0, 0.5);
-	}
-	return vec4f(p, 0.0, 1.0);
+fn vs_main(@location(0) in_vertex_position: vec2f) -> @builtin(position) vec4f {
+return vec4f(in_vertex_position, 0.0, 1.0); 
 }
 
 @fragment
@@ -68,8 +60,10 @@ private:
 	// Create the render pipline during initialization
 	void InitializePipeline();
 
+	RequiredLimits GetRequiredLimits(Adapter adapter) const;
+
 	// Demonstrate buffer operations and mapping during initialization
-	void PlayingWithBuffers();
+	void InitializeBuffers();
 
 private:
 	// Variables shared between initialization and main loop
@@ -80,6 +74,8 @@ private:
 	std::unique_ptr<ErrorCallback> uncapturedErrorCallbackHandle;
 	TextureFormat surfaceFormat = TextureFormat::Undefined;
 	RenderPipeline pipeline;
+	Buffer vertexBuffer;
+	uint32_t vertexCount;
 };
 
 int main() {
@@ -152,8 +148,6 @@ bool Application::Initialize() {
 		if (message) std::cout << " (" << message << ")";
 		std::cout << std::endl;
 	});
-	
-	queue = device.getQueue();
 
 	// Configure the surface
 	SurfaceConfiguration config = {};
@@ -181,12 +175,13 @@ bool Application::Initialize() {
 	InitializePipeline();
 
 	// Playing with Buffers
-	PlayingWithBuffers();
+	InitializeBuffers();
 
 	return true;
 }
 
 void Application::Terminate() {
+	vertexBuffer.release();
 	pipeline.release();
 	surface.unconfigure();
 	queue.release();
@@ -375,78 +370,51 @@ void Application::InitializePipeline() {
 	shaderModule.release();
 }
 
-void Application::PlayingWithBuffers() {
-	// Experimentation for the "Playing with buffer" chapter
-
-	// Buffer 1
+void Application::InitializeBuffers() {
+	// Vertex buffer data
+	// There are 2 floats per vertex, one for x and one for y.
+	std::vector<float> vertexData = {
+		// Define a first triangle:
+		-0.5, -0.5,
+		+0.5, -0.5,
+		+0.0, +0.5,
+	
+		// Add a second triangle:
+		-0.55f, -0.5,
+		-0.05f, +0.5,
+		-0.55f, +0.5
+	};
+	vertexCount = static_cast<uint32_t>(vertexData.size() / 2);
+	
+	// Create vertex buffer
 	BufferDescriptor bufferDesc;
-	bufferDesc.label = "Some GPU-side data buffer";
-	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::CopySrc;
-	bufferDesc.size = 16;
+	bufferDesc.size = vertexData.size() * sizeof(float);
+	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::Vertex; // Vertex usage here!
 	bufferDesc.mappedAtCreation = false;
-	Buffer buffer1 = device.createBuffer(bufferDesc);
+	vertexBuffer = device.createBuffer(bufferDesc);
+	
+	// Upload geometry data to the buffer
+	queue.writeBuffer(vertexBuffer, 0, vertexData.data(), bufferDesc.size);
+}
 
-	// Buffer 2 (Reusing bufferDesc object for buffer 2)
-	bufferDesc.label = "Output Buffer";
-	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::MapRead;
-	Buffer buffer2 = device.createBuffer(bufferDesc);
+RequiredLimits Application::GetRequiredLimits(Adapter adapter) const {
+	// Get adapter supported limits, in case we need them
+	SupportedLimits supportedLimits;
+	adapter.getLimits(&supportedLimits);
 
-	// Create some CPU-side data buffer (of size 16 bytes)
-	std::vector<uint8_t> numbers(16);
-	for (uint8_t i = 0; i < 16; ++i) numbers[i] = i;
-	// `numbers` now contains [ 0, 1, 2, ... ]
+	// Don't forget to = Default
+	RequiredLimits requiredLimits = Default;
 
-	// Copy this from `numbers` (RAM) to `buffer1` (VRAM)
-	queue.writeBuffer(buffer1, 0, numbers.data(), numbers.size());
+	// We use at most 1 vertex attribute for now
+	requiredLimits.limits.maxVertexAttributes = 1;
+	// We should also tell that we use 1 vertex buffers
+	requiredLimits.limits.maxVertexBuffers = 1;
+	// Maximum size of a buffer is 6 vertices of 2 float each
+	requiredLimits.limits.maxBufferSize = 6 * 2 * sizeof(float);
+	// Maximum stride between 2 consecutive vertices in the vertex buffer
+	requiredLimits.limits.maxVertexBufferArrayStride = 2 * sizeof(float);
+	// This must be set even if we do not use storage buffers for now
+	requiredLimits.limits.minStorageBufferOffsetAlignment = supportedLimits.limits.minStorageBufferOffsetAlignment;
 
-	CommandEncoder encoder = device.createCommandEncoder(Default);
-	
-	// After creating the command encoder
-	encoder.copyBufferToBuffer(buffer1, 0, buffer2, 0, 16);
-	
-	CommandBuffer command = encoder.finish(Default);
-	encoder.release();
-	queue.submit(1, &command);
-	command.release();
-	
-	// The context shared between this main function and the callback.
-	struct Context {
-		bool ready;
-		Buffer buffer;
-	};
-
-	auto onBuffer2Mapped = [](WGPUBufferMapAsyncStatus status, void* pUserData) {
-		Context* context = reinterpret_cast<Context*>(pUserData);
-		context->ready = true;
-		std::cout << "Buffer 2 mapped with status " << status << std::endl;
-		if (status != BufferMapAsyncStatus::Success) return;
-	
-		// Get a pointer to wherever the driver mapped the GPU memory to the RAM
-		uint8_t* bufferData = (uint8_t*)context->buffer.getConstMappedRange(0, 16);
-		
-		std::cout << "bufferData = [";
-		for (int i = 0; i < 16; ++i) {
-			if (i > 0) std::cout << ", ";
-			std::cout << (int)bufferData[i];
-		}
-		std::cout << "]" << std::endl;
-		
-		// Then do not forget to unmap the memory
-		context->buffer.unmap();
-	};
-	
-	// Create the Context instance
-	Context context = { false, buffer2 };
-	
-	wgpuBufferMapAsync(buffer2, MapMode::Read, 0, 16, onBuffer2Mapped, (void*)&context);
-	//                   Pass the address of the Context instance here: ^^^^^^^^^^^^^^
-	
-	while (!context.ready) {
-		//  ^^^^^^^^^^^^^ Use context.ready here instead of ready
-		wgpuPollEvents(device, true /* yieldToBrowser */);
-	}
-	
-	// Terminate
-	buffer1.release();
-	buffer2.release();
+	return requiredLimits;
 }
