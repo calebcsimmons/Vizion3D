@@ -378,7 +378,7 @@ void Application::InitializePipeline() {
 	shaderModule.release();
 }
 
-void PlayingWithBuffers() {
+void Application::PlayingWithBuffers() {
 	// Experimentation for the "Playing with buffer" chapter
 
 	// Buffer 1
