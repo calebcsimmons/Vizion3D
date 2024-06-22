@@ -157,6 +157,14 @@ bool Application::Initialize() {
 
 	InitializePipeline();
 
+	// Experimentation for the "Playing with buffer" chapter
+	BufferDescriptor bufferDesc;
+	bufferDesc.label = "Some GPU-side data buffer";
+	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::CopySrc;
+	bufferDesc.size = 16;
+	bufferDesc.mappedAtCreation = false;
+	Buffer buffer1 = device.createBuffer(bufferDesc);
+
 	return true;
 }
 
