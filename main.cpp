@@ -1,4 +1,3 @@
-// Include the C++ wrapper instead of the raw header(s)
 #define WEBGPU_CPP_IMPLEMENTATION
 #include <webgpu/webgpu.hpp>
 
@@ -15,7 +14,7 @@
 
 using namespace wgpu;
 
-// We embbed the source of the shader module here
+// Embedded shader module source
 const char* shaderSource = R"(
 @vertex
 fn vs_main(@builtin(vertex_index) in_vertex_index: u32) -> @builtin(position) vec4f {
@@ -36,7 +35,7 @@ fn fs_main() -> @location(0) vec4f {
 }
 )";
 
-// We define a function that hides implementation-specific variants of device polling:
+//  Function to hide implementation-specific device polling variants
 void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldToWebBrowser) {
 #if defined(WEBGPU_BACKEND_DAWN)
     device.tick();
@@ -51,29 +50,29 @@ void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldT
 
 class Application {
 public:
-	// Initialize everything and return true if it went all right
+	// Initialize application components and return success status
 	bool Initialize();
 
-	// Uninitialize everything that was initialized
+	// Clean up all initialized resources and state
 	void Terminate();
 
-	// Draw a frame and handle events
+	// Process events and render a frame
 	void MainLoop();
 
-	// Return true as long as the main loop should keep on running
+	// Determine if application's main loop should continue running
 	bool IsRunning();
 
 private:
 	TextureView GetNextSurfaceTextureView();
 
-	// Substep of Initialize() that creates the render pipeline
+	// Create the render pipline during initialization
 	void InitializePipeline();
 
-	// Buffers
+	// Demonstrate buffer operations and mapping during initialization
 	void PlayingWithBuffers();
 
 private:
-	// We put here all the variables that are shared between init and main loop
+	// Variables shared between initialization and main loop
 	GLFWwindow *window;
 	Device device;
 	Queue queue;
@@ -94,7 +93,7 @@ int main() {
 	// Equivalent of the main loop when using Emscripten:
 	auto callback = [](void *arg) {
 		Application* pApp = reinterpret_cast<Application*>(arg);
-		pApp->MainLoop(); // 4. We can use the application object
+		pApp->MainLoop();
 	};
 	emscripten_set_main_loop_arg(callback, &app, 0, true);
 #else // __EMSCRIPTEN__
@@ -107,16 +106,19 @@ int main() {
 }
 
 bool Application::Initialize() {
-	// Open window
+	// Open GLFW window
 	glfwInit();
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 	window = glfwCreateWindow(640, 480, "Learn WebGPU", nullptr, nullptr);
 	
+	// Create webGPU instance
 	Instance instance = wgpuCreateInstance(nullptr);
 	
+	// Get webGPU surface from window
 	surface = glfwGetWGPUSurface(instance, window);
 	
+	// Request adapter
 	std::cout << "Requesting adapter..." << std::endl;
 	surface = glfwGetWGPUSurface(instance, window);
 	RequestAdapterOptions adapterOpts = {};
@@ -124,8 +126,9 @@ bool Application::Initialize() {
 	Adapter adapter = instance.requestAdapter(adapterOpts);
 	std::cout << "Got adapter: " << adapter << std::endl;
 	
-	instance.release();
+	instance.release(); // release adapter after request
 	
+	// Request device
 	std::cout << "Requesting device..." << std::endl;
 	DeviceDescriptor deviceDesc = {};
 	deviceDesc.label = "My Device";
@@ -138,9 +141,12 @@ bool Application::Initialize() {
 		if (message) std::cout << " (" << message << ")";
 		std::cout << std::endl;
 	};
+
+	// Request device from adapter
 	device = adapter.requestDevice(deviceDesc);
 	std::cout << "Got device: " << device << std::endl;
 	
+	// Set uncaptured error callback
 	uncapturedErrorCallbackHandle = device.setUncapturedErrorCallback([](ErrorType type, char const* message) {
 		std::cout << "Uncaptured device error: type " << type;
 		if (message) std::cout << " (" << message << ")";
@@ -152,23 +158,24 @@ bool Application::Initialize() {
 	// Configure the surface
 	SurfaceConfiguration config = {};
 	
-	// Configuration of the textures created for the underlying swap chain
+	// Configure textures for swap chain
 	config.width = 640;
 	config.height = 480;
 	config.usage = TextureUsage::RenderAttachment;
 	surfaceFormat = surface.getPreferredFormat(adapter);
 	config.format = surfaceFormat;
 
-	// And we do not need any particular view format:
+	// Configure swap chain settings
 	config.viewFormatCount = 0;
 	config.viewFormats = nullptr;
 	config.device = device;
 	config.presentMode = PresentMode::Fifo;
 	config.alphaMode = CompositeAlphaMode::Auto;
 
+	// Apply configuration to surface
 	surface.configure(config);
 
-	// Release the adapter only after it has been fully utilized
+	// Release adapter
 	adapter.release();
 
 	InitializePipeline();
@@ -192,19 +199,19 @@ void Application::Terminate() {
 void Application::MainLoop() {
 	glfwPollEvents();
 
-	// Get the next target texture view
+	// Get the next target texture view for rendering
 	TextureView targetView = GetNextSurfaceTextureView();
-	if (!targetView) return;
+	if (!targetView) return; // return if target view is not available
 
 	// Create a command encoder for the draw call
 	CommandEncoderDescriptor encoderDesc = {};
 	encoderDesc.label = "My command encoder";
 	CommandEncoder encoder = wgpuDeviceCreateCommandEncoder(device, &encoderDesc);
 
-	// Create the render pass that clears the screen with our color
+	// Create the render pass descriptor to clear the screen with specified color
 	RenderPassDescriptor renderPassDesc = {};
 
-	// The attachment part of the render pass descriptor describes the target texture of the pass
+	// Configure the color attachment of the render pass
 	RenderPassColorAttachment renderPassColorAttachment = {};
 	renderPassColorAttachment.view = targetView;
 	renderPassColorAttachment.resolveTarget = nullptr;
@@ -215,59 +222,66 @@ void Application::MainLoop() {
 	renderPassColorAttachment.depthSlice = WGPU_DEPTH_SLICE_UNDEFINED;
 #endif // NOT WEBGPU_BACKEND_WGPU
 
+	// Assign the color attachment to the render pass descriptor
 	renderPassDesc.colorAttachmentCount = 1;
 	renderPassDesc.colorAttachments = &renderPassColorAttachment;
 	renderPassDesc.depthStencilAttachment = nullptr;
 	renderPassDesc.timestampWrites = nullptr;
 
+	// Begin the render pass
 	RenderPassEncoder renderPass = encoder.beginRenderPass(renderPassDesc);
 
-	// Select which render pipeline to use
+	// Set the render pipeline for rendering
 	renderPass.setPipeline(pipeline);
 	// Draw 1 instance of a 3-vertices shape
 	renderPass.draw(3, 1, 0, 0);
 
+	// End and release the render pass
 	renderPass.end();
 	renderPass.release();
 
-	// Finally encode and submit the render pass
+	// Encode and submit the command buffer
 	CommandBufferDescriptor cmdBufferDescriptor = {};
 	cmdBufferDescriptor.label = "Command buffer";
 	CommandBuffer command = encoder.finish(cmdBufferDescriptor);
 	encoder.release();
 
 	std::cout << "Submitting command..." << std::endl;
-	queue.submit(1, &command);
-	command.release();
+	queue.submit(1, &command); // Submit command buffer to queue
+	command.release(); // Release command buffer
 	std::cout << "Command submitted." << std::endl;
 
-	// At the enc of the frame
+	// Release target texture view at end of frame
 	targetView.release();
+
 #ifndef __EMSCRIPTEN__
-	surface.present();
+surface.present(); // Present the surface (swap chain) contents
 #endif
 
 #if defined(WEBGPU_BACKEND_DAWN)
-	device.tick();
+device.tick(); // Tick the device for DAWN backend
 #elif defined(WEBGPU_BACKEND_WGPU)
-	device.poll(false);
+device.poll(false); // Poll the device for WGPU backend
 #endif
 }
 
 bool Application::IsRunning() {
-	return !glfwWindowShouldClose(window);
+	return !glfwWindowShouldClose(window); // Check if the GLFW window should close
 }
 
 TextureView Application::GetNextSurfaceTextureView() {
 	// Get the surface texture
 	SurfaceTexture surfaceTexture;
 	surface.getCurrentTexture(&surfaceTexture);
-	if (surfaceTexture.status != SurfaceGetCurrentTextureStatus::Success) {
-		return nullptr;
-	}
-	Texture texture = surfaceTexture.texture;
 
-	// Create a view for this surface texture
+	// Check if getting the surface texture was successful
+	if (surfaceTexture.status != SurfaceGetCurrentTextureStatus::Success) {
+		return nullptr; // Return nullptr if failed to get surface texture
+	}
+
+	Texture texture = surfaceTexture.texture; // Get the texture from the surface texture
+
+	// Create a view descriptor for the surface texture
 	TextureViewDescriptor viewDescriptor;
 	viewDescriptor.label = "Surface texture view";
 	viewDescriptor.format = texture.getFormat();
@@ -277,9 +291,11 @@ TextureView Application::GetNextSurfaceTextureView() {
 	viewDescriptor.baseArrayLayer = 0;
 	viewDescriptor.arrayLayerCount = 1;
 	viewDescriptor.aspect = TextureAspect::All;
+
+	// Create a view for the surface texture
 	TextureView targetView = texture.createView(viewDescriptor);
 
-	return targetView;
+	return targetView; // Return the created texture view
 }
 
 void Application::InitializePipeline() {
@@ -290,50 +306,36 @@ void Application::InitializePipeline() {
 	shaderDesc.hints = nullptr;
 #endif
 
-	// We use the extension mechanism to specify the WGSL part of the shader module descriptor
+	// Configure the WGSL shader code descriptor
 	ShaderModuleWGSLDescriptor shaderCodeDesc;
+
 	// Set the chained struct's header
 	shaderCodeDesc.chain.next = nullptr;
 	shaderCodeDesc.chain.sType = SType::ShaderModuleWGSLDescriptor;
+
 	// Connect the chain
 	shaderDesc.nextInChain = &shaderCodeDesc.chain;
 	shaderCodeDesc.code = shaderSource;
 	ShaderModule shaderModule = device.createShaderModule(shaderDesc);
 
-	// Create the render pipeline
+	// Create the render pipeline descriptor
 	RenderPipelineDescriptor pipelineDesc;
 
-	// We do not use any vertex buffer for this first simplistic example
+	// Vertex stage configuration (no vertex buffers for this example)
 	pipelineDesc.vertex.bufferCount = 0;
 	pipelineDesc.vertex.buffers = nullptr;
-
-	// NB: We define the 'shaderModule' in the second part of this chapter.
-	// Here we tell that the programmable vertex shader stage is described
-	// by the function called 'vs_main' in that module.
 	pipelineDesc.vertex.module = shaderModule;
 	pipelineDesc.vertex.entryPoint = "vs_main";
 	pipelineDesc.vertex.constantCount = 0;
 	pipelineDesc.vertex.constants = nullptr;
 
-	// Each sequence of 3 vertices is considered as a triangle
+	// Primitive assembly configuration (triangle list, no strip indices, counter-clockwise front face)
 	pipelineDesc.primitive.topology = PrimitiveTopology::TriangleList;
-	
-	// We'll see later how to specify the order in which vertices should be
-	// connected. When not specified, vertices are considered sequentially.
 	pipelineDesc.primitive.stripIndexFormat = IndexFormat::Undefined;
-	
-	// The face orientation is defined by assuming that when looking
-	// from the front of the face, its corner vertices are enumerated
-	// in the counter-clockwise (CCW) order.
 	pipelineDesc.primitive.frontFace = FrontFace::CCW;
-	
-	// But the face orientation does not matter much because we do not
-	// cull (i.e. "hide") the faces pointing away from us (which is often
-	// used for optimization).
-	pipelineDesc.primitive.cullMode = CullMode::None;
+	pipelineDesc.primitive.cullMode = CullMode::None; // Disable face culling
 
-	// We tell that the programmable fragment shader stage is described
-	// by the function called 'fs_main' in the shader module.
+	// Fragment stage configuration (fragment shader entry point, blending, color target)
 	FragmentState fragmentState;
 	fragmentState.module = shaderModule;
 	fragmentState.entryPoint = "fs_main";
@@ -351,30 +353,25 @@ void Application::InitializePipeline() {
 	ColorTargetState colorTarget;
 	colorTarget.format = surfaceFormat;
 	colorTarget.blend = &blendState;
-	colorTarget.writeMask = ColorWriteMask::All; // We could write to only some of the color channels.
-	
-	// We have only one target because our render pass has only one output color
-	// attachment.
+	colorTarget.writeMask = ColorWriteMask::All;
+
 	fragmentState.targetCount = 1;
 	fragmentState.targets = &colorTarget;
 	pipelineDesc.fragment = &fragmentState;
 
-	// We do not use stencil/depth testing for now
+	// Depth and stencil testing (none used in this example)
 	pipelineDesc.depthStencil = nullptr;
 
-	// Samples per pixel
+	// Multisampling configuration (single sample per pixel)
 	pipelineDesc.multisample.count = 1;
-
-	// Default value for the mask, meaning "all bits on"
-	pipelineDesc.multisample.mask = ~0u;
-
-	// Default value as well (irrelevant for count = 1 anyways)
+	pipelineDesc.multisample.mask = ~0u; // Default value, all bits enabled
 	pipelineDesc.multisample.alphaToCoverageEnabled = false;
 	pipelineDesc.layout = nullptr;
 	
+	// Create render pipeline
 	pipeline = device.createRenderPipeline(pipelineDesc);
 
-	// We no longer need to access the shader module
+	// Release shader module
 	shaderModule.release();
 }
 
