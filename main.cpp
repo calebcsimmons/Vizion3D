@@ -36,6 +36,19 @@ fn fs_main() -> @location(0) vec4f {
 }
 )";
 
+// We define a function that hides implementation-specific variants of device polling:
+void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldToWebBrowser) {
+#if defined(WEBGPU_BACKEND_DAWN)
+    device.tick();
+#elif defined(WEBGPU_BACKEND_WGPU)
+    device.poll(false);
+#elif defined(WEBGPU_BACKEND_EMSCRIPTEN)
+    if (yieldToWebBrowser) {
+        emscripten_sleep(100);
+    }
+#endif
+}
+
 class Application {
 public:
 	// Initialize everything and return true if it went all right
@@ -55,6 +68,9 @@ private:
 
 	// Substep of Initialize() that creates the render pipeline
 	void InitializePipeline();
+
+	// Buffers
+	void PlayingWithBuffers();
 
 private:
 	// We put here all the variables that are shared between init and main loop
@@ -157,13 +173,8 @@ bool Application::Initialize() {
 
 	InitializePipeline();
 
-	// Experimentation for the "Playing with buffer" chapter
-	BufferDescriptor bufferDesc;
-	bufferDesc.label = "Some GPU-side data buffer";
-	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::CopySrc;
-	bufferDesc.size = 16;
-	bufferDesc.mappedAtCreation = false;
-	Buffer buffer1 = device.createBuffer(bufferDesc);
+	// Playing with Buffers
+	PlayingWithBuffers();
 
 	return true;
 }
@@ -189,6 +200,13 @@ void Application::MainLoop() {
 	CommandEncoderDescriptor encoderDesc = {};
 	encoderDesc.label = "My command encoder";
 	CommandEncoder encoder = wgpuDeviceCreateCommandEncoder(device, &encoderDesc);
+
+	CommandEncoder encoder = device.createCommandEncoder(Default);
+	encoder.copyBufferToBuffer(buffer1, 0, buffer2, 0, 16);
+	CommandBuffer command = encoder.finish(Default);
+	encoder.release();
+	queue.submit(1, &command);
+	command.release();
 
 	// Create the render pass that clears the screen with our color
 	RenderPassDescriptor renderPassDesc = {};
@@ -365,4 +383,83 @@ void Application::InitializePipeline() {
 
 	// We no longer need to access the shader module
 	shaderModule.release();
+}
+
+void PlayingWithBuffers() {
+	// Experimentation for the "Playing with buffer" chapter
+
+	// Buffer 1
+	BufferDescriptor bufferDesc;
+	bufferDesc.label = "Some GPU-side data buffer";
+	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::CopySrc;
+	bufferDesc.size = 16;
+	bufferDesc.mappedAtCreation = false;
+	Buffer buffer1 = device.createBuffer(bufferDesc);
+
+	// Buffer 2
+	BufferDescriptor bufferDesc;
+	bufferDesc.label = "Output Buffer";
+	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::MapRead;
+	bufferDesc.size = 16;
+	bufferDesc.mappedAtCreation = false;
+	Buffer buffer2 = device.createBuffer(bufferDesc);
+
+	// Create some CPU-side data buffer (of size 16 bytes)
+	std::vector<uint8_t> numbers(16);
+	for (uint8_t i = 0; i < 16; ++i) numbers[i] = i;
+	// `numbers` now contains [ 0, 1, 2, ... ]
+
+	// Copy this from `numbers` (RAM) to `buffer1` (VRAM)
+	queue.writeBuffer(buffer1, 0, numbers.data(), numbers.size());
+
+	CommandEncoder encoder = device.createCommandEncoder(Default);
+	
+	// After creating the command encoder
+	encoder.copyBufferToBuffer(buffer1, 0, buffer2, 0, 16);
+	
+	CommandBuffer command = encoder.finish(Default);
+	encoder.release();
+	queue.submit(1, &command);
+	command.release();
+	
+	// The context shared between this main function and the callback.
+	struct Context {
+		bool ready;
+		Buffer buffer;
+	};
+
+	auto onBuffer2Mapped = [](WGPUBufferMapAsyncStatus status, void* pUserData) {
+		Context* context = reinterpret_cast<Context*>(pUserData);
+		context->ready = true;
+		std::cout << "Buffer 2 mapped with status " << status << std::endl;
+		if (status != BufferMapAsyncStatus::Success) return;
+	
+		// Get a pointer to wherever the driver mapped the GPU memory to the RAM
+		uint8_t* bufferData = (uint8_t*)context->buffer.getConstMappedRange(0, 16);
+		
+		std::cout << "bufferData = [";
+		for (int i = 0; i < 16; ++i) {
+			if (i > 0) std::cout << ", ";
+			std::cout << (int)bufferData[i];
+		}
+		std::cout << "]" << std::endl;
+		
+		// Then do not forget to unmap the memory
+		context->buffer.unmap();
+	};
+	
+	// Create the Context instance
+	Context context = { false, buffer2 };
+	
+	wgpuBufferMapAsync(buffer2, MapMode::Read, 0, 16, onBuffer2Mapped, (void*)&context);
+	//                   Pass the address of the Context instance here: ^^^^^^^^^^^^^^
+	
+	while (!context.ready) {
+		//  ^^^^^^^^^^^^^ Use context.ready here instead of ready
+		wgpuPollEvents(device, true /* yieldToBrowser */);
+	}
+	
+	// In Terminate()
+	buffer1.release();
+	buffer2.release();
 }
