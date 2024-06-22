@@ -389,12 +389,9 @@ void Application::PlayingWithBuffers() {
 	bufferDesc.mappedAtCreation = false;
 	Buffer buffer1 = device.createBuffer(bufferDesc);
 
-	// Buffer 2
-	BufferDescriptor bufferDesc;
+	// Buffer 2 (Reusing bufferDesc object for buffer 2)
 	bufferDesc.label = "Output Buffer";
 	bufferDesc.usage = BufferUsage::CopyDst | BufferUsage::MapRead;
-	bufferDesc.size = 16;
-	bufferDesc.mappedAtCreation = false;
 	Buffer buffer2 = device.createBuffer(bufferDesc);
 
 	// Create some CPU-side data buffer (of size 16 bytes)
@@ -452,7 +449,7 @@ void Application::PlayingWithBuffers() {
 		wgpuPollEvents(device, true /* yieldToBrowser */);
 	}
 	
-	// In Terminate()
+	// Terminate
 	buffer1.release();
 	buffer2.release();
 }
