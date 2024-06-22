@@ -201,13 +201,6 @@ void Application::MainLoop() {
 	encoderDesc.label = "My command encoder";
 	CommandEncoder encoder = wgpuDeviceCreateCommandEncoder(device, &encoderDesc);
 
-	CommandEncoder encoder = device.createCommandEncoder(Default);
-	encoder.copyBufferToBuffer(buffer1, 0, buffer2, 0, 16);
-	CommandBuffer command = encoder.finish(Default);
-	encoder.release();
-	queue.submit(1, &command);
-	command.release();
-
 	// Create the render pass that clears the screen with our color
 	RenderPassDescriptor renderPassDesc = {};
 
