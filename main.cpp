@@ -1,18 +1,32 @@
+#include <glfw3webgpu.h>
+#include <GLFW/glfw3.h>
+
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#define GLM_FORCE_LEFT_HANDED
+#include <glm/glm.hpp> // all types inspired from GLSL
+#include <glm/ext.hpp>
+
 #define WEBGPU_CPP_IMPLEMENTATION
 #include <webgpu/webgpu.hpp>
 
-#include <GLFW/glfw3.h>
-#include <glfw3webgpu.h>
-
-#ifdef __EMSCRIPTEN__
-#  include <emscripten.h>
-#endif // __EMSCRIPTEN__
+#define TINYOBJLOADER_IMPLEMENTATION // add this to exactly 1 of your C++ files
+#include "tiny_obj_loader.h"
 
 #include <iostream>
 #include <cassert>
-#include <vector>
+#include <filesystem>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <array>
 
 using namespace wgpu;
+namespace fs = std::filesystem;
+using glm::mat4x4;
+using glm::vec4;
+using glm::vec3;
+
+constexpr float PI = 3.14159265358979323846f;
 
 // Embedded shader module source
 const char* shaderSource = R"(
