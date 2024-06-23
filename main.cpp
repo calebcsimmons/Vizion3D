@@ -27,18 +27,18 @@ fn fs_main() -> @location(0) vec4f {
 }
 )";
 
-//  Function to hide implementation-specific device polling variants
-void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldToWebBrowser) {
-#if defined(WEBGPU_BACKEND_DAWN)
-    device.tick();
-#elif defined(WEBGPU_BACKEND_WGPU)
-    device.poll(false);
-#elif defined(WEBGPU_BACKEND_EMSCRIPTEN)
-    if (yieldToWebBrowser) {
-        emscripten_sleep(100);
-    }
-#endif
-}
+// //  Function to hide implementation-specific device polling variants
+// void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldToWebBrowser) {
+// #if defined(WEBGPU_BACKEND_DAWN)
+//     device.tick();
+// #elif defined(WEBGPU_BACKEND_WGPU)
+//     device.poll(false);
+// #elif defined(WEBGPU_BACKEND_EMSCRIPTEN)
+//     if (yieldToWebBrowser) {
+//         emscripten_sleep(100);
+//     }
+// #endif
+// }
 
 class Application {
 public:
@@ -116,7 +116,6 @@ bool Application::Initialize() {
 	
 	// Request adapter
 	std::cout << "Requesting adapter..." << std::endl;
-	surface = glfwGetWGPUSurface(instance, window);
 	RequestAdapterOptions adapterOpts = {};
 	adapterOpts.compatibleSurface = surface;
 	Adapter adapter = instance.requestAdapter(adapterOpts);
@@ -139,6 +138,8 @@ bool Application::Initialize() {
 	};
 
 	// Request device from adapter
+	RequiredLimits requiredLimits = GetRequiredLimits(adapter);
+	deviceDesc.requiredLimits = &requiredLimits;
 	device = adapter.requestDevice(deviceDesc);
 	std::cout << "Got device: " << device << std::endl;
 	
@@ -148,6 +149,8 @@ bool Application::Initialize() {
 		if (message) std::cout << " (" << message << ")";
 		std::cout << std::endl;
 	});
+
+	queue = device.getQueue();
 
 	// Configure the surface
 	SurfaceConfiguration config = {};
@@ -173,8 +176,6 @@ bool Application::Initialize() {
 	adapter.release();
 
 	InitializePipeline();
-
-	// Playing with Buffers
 	InitializeBuffers();
 
 	return true;
@@ -320,9 +321,31 @@ void Application::InitializePipeline() {
 	// Create the render pipeline descriptor
 	RenderPipelineDescriptor pipelineDesc;
 
-	// Vertex stage configuration (no vertex buffers for this example)
-	pipelineDesc.vertex.bufferCount = 0;
-	pipelineDesc.vertex.buffers = nullptr;
+	// Configure the vertex pipeline
+	// We use one vertex buffer
+	VertexBufferLayout vertexBufferLayout;
+	VertexAttribute positionAttrib;
+	// == For each attribute, describe its layout, i.e., how to interpret the raw data ==
+	// Corresponds to @location(...)
+	positionAttrib.shaderLocation = 0;
+	// Means vec2f in the shader
+	positionAttrib.format = VertexFormat::Float32x2;
+	// Index of the first element
+	positionAttrib.offset = 0;
+	
+	vertexBufferLayout.attributeCount = 1;
+	vertexBufferLayout.attributes = &positionAttrib;
+	
+	// == Common to attributes from the same buffer ==
+	vertexBufferLayout.arrayStride = 2 * sizeof(float);
+	vertexBufferLayout.stepMode = VertexStepMode::Vertex;
+	
+	pipelineDesc.vertex.bufferCount = 1;
+	pipelineDesc.vertex.buffers = &vertexBufferLayout;
+
+	// NB: We define the 'shaderModule' in the second part of this chapter.
+	// Here we tell that the programmable vertex shader stage is described
+	// by the function called 'vs_main' in that module.
 	pipelineDesc.vertex.module = shaderModule;
 	pipelineDesc.vertex.entryPoint = "vs_main";
 	pipelineDesc.vertex.constantCount = 0;
