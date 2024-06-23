@@ -1,3 +1,5 @@
+
+// Include the C++ wrapper instead of the raw header(s)
 #define WEBGPU_CPP_IMPLEMENTATION
 #include <webgpu/webgpu.hpp>
 
@@ -14,11 +16,11 @@
 
 using namespace wgpu;
 
-// Embedded shader module source
+// We embbed the source of the shader module here
 const char* shaderSource = R"(
 @vertex
 fn vs_main(@location(0) in_vertex_position: vec2f) -> @builtin(position) vec4f {
-return vec4f(in_vertex_position, 0.0, 1.0); 
+	return vec4f(in_vertex_position, 0.0, 1.0);
 }
 
 @fragment
@@ -27,46 +29,30 @@ fn fs_main() -> @location(0) vec4f {
 }
 )";
 
-//  Function to hide implementation-specific device polling variants
-void wgpuPollEvents([[maybe_unused]] Device device, [[maybe_unused]] bool yieldToWebBrowser) {
-#if defined(WEBGPU_BACKEND_DAWN)
-    device.tick();
-#elif defined(WEBGPU_BACKEND_WGPU)
-    device.poll(false);
-#elif defined(WEBGPU_BACKEND_EMSCRIPTEN)
-    if (yieldToWebBrowser) {
-        emscripten_sleep(100);
-    }
-#endif
-}
-
 class Application {
 public:
-	// Initialize application components and return success status
+	// Initialize everything and return true if it went all right
 	bool Initialize();
 
-	// Clean up all initialized resources and state
+	// Uninitialize everything that was initialized
 	void Terminate();
 
-	// Process events and render a frame
+	// Draw a frame and handle events
 	void MainLoop();
 
-	// Determine if application's main loop should continue running
+	// Return true as long as the main loop should keep on running
 	bool IsRunning();
 
 private:
 	TextureView GetNextSurfaceTextureView();
 
-	// Create the render pipline during initialization
+	// Substep of Initialize() that creates the render pipeline
 	void InitializePipeline();
-
 	RequiredLimits GetRequiredLimits(Adapter adapter) const;
-
-	// Buffer 
 	void InitializeBuffers();
 
 private:
-	// Variables shared between initialization and main loop
+	// We put here all the variables that are shared between init and main loop
 	GLFWwindow *window;
 	Device device;
 	Queue queue;
@@ -89,7 +75,7 @@ int main() {
 	// Equivalent of the main loop when using Emscripten:
 	auto callback = [](void *arg) {
 		Application* pApp = reinterpret_cast<Application*>(arg);
-		pApp->MainLoop();
+		pApp->MainLoop(); // 4. We can use the application object
 	};
 	emscripten_set_main_loop_arg(callback, &app, 0, true);
 #else // __EMSCRIPTEN__
@@ -102,19 +88,15 @@ int main() {
 }
 
 bool Application::Initialize() {
-	// Open GLFW window
+	// Open window
 	glfwInit();
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 	window = glfwCreateWindow(640, 480, "Learn WebGPU", nullptr, nullptr);
 	
-	// Create webGPU instance
 	Instance instance = wgpuCreateInstance(nullptr);
 	
-	// Get webGPU surface from window
-	surface = glfwGetWGPUSurface(instance, window);
-	
-	// Request adapter
+	// Get adapter
 	std::cout << "Requesting adapter..." << std::endl;
 	surface = glfwGetWGPUSurface(instance, window);
 	RequestAdapterOptions adapterOpts = {};
@@ -122,9 +104,8 @@ bool Application::Initialize() {
 	Adapter adapter = instance.requestAdapter(adapterOpts);
 	std::cout << "Got adapter: " << adapter << std::endl;
 	
-	instance.release(); // release adapter after request
+	instance.release();
 	
-	// Request device
 	std::cout << "Requesting device..." << std::endl;
 	DeviceDescriptor deviceDesc = {};
 	deviceDesc.label = "My Device";
@@ -137,46 +118,45 @@ bool Application::Initialize() {
 		if (message) std::cout << " (" << message << ")";
 		std::cout << std::endl;
 	};
-
-	// Request device from adapter
+	// Before adapter.requestDevice(deviceDesc)
+	RequiredLimits requiredLimits = GetRequiredLimits(adapter);
+	deviceDesc.requiredLimits = &requiredLimits;
 	device = adapter.requestDevice(deviceDesc);
 	std::cout << "Got device: " << device << std::endl;
-	
-	// Set uncaptured error callback
+
+	// Device error callback
 	uncapturedErrorCallbackHandle = device.setUncapturedErrorCallback([](ErrorType type, char const* message) {
 		std::cout << "Uncaptured device error: type " << type;
 		if (message) std::cout << " (" << message << ")";
 		std::cout << std::endl;
 	});
+	
+	queue = device.getQueue();
 
 	// Configure the surface
 	SurfaceConfiguration config = {};
 	
-	// Configure textures for swap chain
+	// Configuration of the textures created for the underlying swap chain
 	config.width = 640;
 	config.height = 480;
 	config.usage = TextureUsage::RenderAttachment;
 	surfaceFormat = surface.getPreferredFormat(adapter);
 	config.format = surfaceFormat;
 
-	// Configure swap chain settings
+	// And we do not need any particular view format:
 	config.viewFormatCount = 0;
 	config.viewFormats = nullptr;
 	config.device = device;
 	config.presentMode = PresentMode::Fifo;
 	config.alphaMode = CompositeAlphaMode::Auto;
 
-	// Apply configuration to surface
 	surface.configure(config);
 
-	// Release adapter
+	// Release the adapter only after it has been fully utilized
 	adapter.release();
 
 	InitializePipeline();
-
-	// Playing with Buffers
 	InitializeBuffers();
-
 	return true;
 }
 
@@ -194,19 +174,19 @@ void Application::Terminate() {
 void Application::MainLoop() {
 	glfwPollEvents();
 
-	// Get the next target texture view for rendering
+	// Get the next target texture view
 	TextureView targetView = GetNextSurfaceTextureView();
-	if (!targetView) return; // return if target view is not available
+	if (!targetView) return;
 
 	// Create a command encoder for the draw call
 	CommandEncoderDescriptor encoderDesc = {};
 	encoderDesc.label = "My command encoder";
 	CommandEncoder encoder = wgpuDeviceCreateCommandEncoder(device, &encoderDesc);
 
-	// Create the render pass descriptor to clear the screen with specified color
+	// Create the render pass that clears the screen with our color
 	RenderPassDescriptor renderPassDesc = {};
 
-	// Configure the color attachment of the render pass
+	// The attachment part of the render pass descriptor describes the target texture of the pass
 	RenderPassColorAttachment renderPassColorAttachment = {};
 	renderPassColorAttachment.view = targetView;
 	renderPassColorAttachment.resolveTarget = nullptr;
@@ -217,70 +197,63 @@ void Application::MainLoop() {
 	renderPassColorAttachment.depthSlice = WGPU_DEPTH_SLICE_UNDEFINED;
 #endif // NOT WEBGPU_BACKEND_WGPU
 
-	// Assign the color attachment to the render pass descriptor
 	renderPassDesc.colorAttachmentCount = 1;
 	renderPassDesc.colorAttachments = &renderPassColorAttachment;
 	renderPassDesc.depthStencilAttachment = nullptr;
 	renderPassDesc.timestampWrites = nullptr;
 
-	// Begin the render pass
 	RenderPassEncoder renderPass = encoder.beginRenderPass(renderPassDesc);
 
-	// Set the render pipeline for rendering
+	// Select which render pipeline to use
 	renderPass.setPipeline(pipeline);
 
 	// Set vertex buffer while encoding the render pass
 	renderPass.setVertexBuffer(0, vertexBuffer, 0, vertexBuffer.getSize());
-
+	
 	// We use the `vertexCount` variable instead of hard-coding the vertex count
 	renderPass.draw(vertexCount, 1, 0, 0);
 
-	// End and release the render pass
 	renderPass.end();
 	renderPass.release();
 
-	// Encode and submit the command buffer
+	// Finally encode and submit the render pass
 	CommandBufferDescriptor cmdBufferDescriptor = {};
 	cmdBufferDescriptor.label = "Command buffer";
 	CommandBuffer command = encoder.finish(cmdBufferDescriptor);
 	encoder.release();
 
 	std::cout << "Submitting command..." << std::endl;
-	queue.submit(1, &command); // Submit command buffer to queue
-	command.release(); // Release command buffer
+	queue.submit(1, &command);
+	command.release();
 	std::cout << "Command submitted." << std::endl;
 
-	// Release target texture view at end of frame
+	// At the end of the frame
 	targetView.release();
-
 #ifndef __EMSCRIPTEN__
-surface.present(); // Present the surface (swap chain) contents
+	surface.present();
 #endif
 
 #if defined(WEBGPU_BACKEND_DAWN)
-device.tick(); // Tick the device for DAWN backend
+	device.tick();
 #elif defined(WEBGPU_BACKEND_WGPU)
-device.poll(false); // Poll the device for WGPU backend
+	device.poll(false);
 #endif
 }
 
 bool Application::IsRunning() {
-	return !glfwWindowShouldClose(window); // Check if the GLFW window should close
+	return !glfwWindowShouldClose(window);
 }
 
 TextureView Application::GetNextSurfaceTextureView() {
 	// Get the surface texture
 	SurfaceTexture surfaceTexture;
 	surface.getCurrentTexture(&surfaceTexture);
-
-	// Check if getting the surface texture was successful
 	if (surfaceTexture.status != SurfaceGetCurrentTextureStatus::Success) {
-		return nullptr; // Return nullptr if failed to get surface texture
+		return nullptr;
 	}
+	Texture texture = surfaceTexture.texture;
 
-	Texture texture = surfaceTexture.texture; // Get the texture from the surface texture
-
-	// Create a view descriptor for the surface texture
+	// Create a view for this surface texture
 	TextureViewDescriptor viewDescriptor;
 	viewDescriptor.label = "Surface texture view";
 	viewDescriptor.format = texture.getFormat();
@@ -290,11 +263,9 @@ TextureView Application::GetNextSurfaceTextureView() {
 	viewDescriptor.baseArrayLayer = 0;
 	viewDescriptor.arrayLayerCount = 1;
 	viewDescriptor.aspect = TextureAspect::All;
-
-	// Create a view for the surface texture
 	TextureView targetView = texture.createView(viewDescriptor);
 
-	return targetView; // Return the created texture view
+	return targetView;
 }
 
 void Application::InitializePipeline() {
@@ -305,36 +276,68 @@ void Application::InitializePipeline() {
 	shaderDesc.hints = nullptr;
 #endif
 
-	// Configure the WGSL shader code descriptor
+	// We use the extension mechanism to specify the WGSL part of the shader module descriptor
 	ShaderModuleWGSLDescriptor shaderCodeDesc;
-
 	// Set the chained struct's header
 	shaderCodeDesc.chain.next = nullptr;
 	shaderCodeDesc.chain.sType = SType::ShaderModuleWGSLDescriptor;
-
 	// Connect the chain
 	shaderDesc.nextInChain = &shaderCodeDesc.chain;
 	shaderCodeDesc.code = shaderSource;
 	ShaderModule shaderModule = device.createShaderModule(shaderDesc);
 
-	// Create the render pipeline descriptor
+	// Create the render pipeline
 	RenderPipelineDescriptor pipelineDesc;
 
-	// Vertex stage configuration (no vertex buffers for this example)
-	pipelineDesc.vertex.bufferCount = 0;
-	pipelineDesc.vertex.buffers = nullptr;
+	// Configure the vertex pipeline
+	// We use one vertex buffer
+	VertexBufferLayout vertexBufferLayout;
+	VertexAttribute positionAttrib;
+	// == For each attribute, describe its layout, i.e., how to interpret the raw data ==
+	// Corresponds to @location(...)
+	positionAttrib.shaderLocation = 0;
+	// Means vec2f in the shader
+	positionAttrib.format = VertexFormat::Float32x2;
+	// Index of the first element
+	positionAttrib.offset = 0;
+	
+	vertexBufferLayout.attributeCount = 1;
+	vertexBufferLayout.attributes = &positionAttrib;
+	
+	// == Common to attributes from the same buffer ==
+	vertexBufferLayout.arrayStride = 2 * sizeof(float);
+	vertexBufferLayout.stepMode = VertexStepMode::Vertex;
+	
+	pipelineDesc.vertex.bufferCount = 1;
+	pipelineDesc.vertex.buffers = &vertexBufferLayout;
+
+	// NB: We define the 'shaderModule' in the second part of this chapter.
+	// Here we tell that the programmable vertex shader stage is described
+	// by the function called 'vs_main' in that module.
 	pipelineDesc.vertex.module = shaderModule;
 	pipelineDesc.vertex.entryPoint = "vs_main";
 	pipelineDesc.vertex.constantCount = 0;
 	pipelineDesc.vertex.constants = nullptr;
 
-	// Primitive assembly configuration (triangle list, no strip indices, counter-clockwise front face)
+	// Each sequence of 3 vertices is considered as a triangle
 	pipelineDesc.primitive.topology = PrimitiveTopology::TriangleList;
+	
+	// We'll see later how to specify the order in which vertices should be
+	// connected. When not specified, vertices are considered sequentially.
 	pipelineDesc.primitive.stripIndexFormat = IndexFormat::Undefined;
+	
+	// The face orientation is defined by assuming that when looking
+	// from the front of the face, its corner vertices are enumerated
+	// in the counter-clockwise (CCW) order.
 	pipelineDesc.primitive.frontFace = FrontFace::CCW;
-	pipelineDesc.primitive.cullMode = CullMode::None; // Disable face culling
+	
+	// But the face orientation does not matter much because we do not
+	// cull (i.e. "hide") the faces pointing away from us (which is often
+	// used for optimization).
+	pipelineDesc.primitive.cullMode = CullMode::None;
 
-	// Fragment stage configuration (fragment shader entry point, blending, color target)
+	// We tell that the programmable fragment shader stage is described
+	// by the function called 'fs_main' in the shader module.
 	FragmentState fragmentState;
 	fragmentState.module = shaderModule;
 	fragmentState.entryPoint = "fs_main";
@@ -352,27 +355,65 @@ void Application::InitializePipeline() {
 	ColorTargetState colorTarget;
 	colorTarget.format = surfaceFormat;
 	colorTarget.blend = &blendState;
-	colorTarget.writeMask = ColorWriteMask::All;
-
+	colorTarget.writeMask = ColorWriteMask::All; // We could write to only some of the color channels.
+	
+	// We have only one target because our render pass has only one output color
+	// attachment.
 	fragmentState.targetCount = 1;
 	fragmentState.targets = &colorTarget;
 	pipelineDesc.fragment = &fragmentState;
 
-	// Depth and stencil testing (none used in this example)
+	// We do not use stencil/depth testing for now
 	pipelineDesc.depthStencil = nullptr;
 
-	// Multisampling configuration (single sample per pixel)
+	// Samples per pixel
 	pipelineDesc.multisample.count = 1;
-	pipelineDesc.multisample.mask = ~0u; // Default value, all bits enabled
+
+	// Default value for the mask, meaning "all bits on"
+	pipelineDesc.multisample.mask = ~0u;
+
+	// Default value as well (irrelevant for count = 1 anyways)
 	pipelineDesc.multisample.alphaToCoverageEnabled = false;
 	pipelineDesc.layout = nullptr;
 	
-	// Create render pipeline
 	pipeline = device.createRenderPipeline(pipelineDesc);
 
-	// Release shader module
+	// We no longer need to access the shader module
 	shaderModule.release();
 }
+
+RequiredLimits Application::GetRequiredLimits(Adapter adapter) const {
+    // Retrieve supported limits from the adapter
+    SupportedLimits supportedLimits;
+    adapter.getLimits(&supportedLimits);
+
+    // Initialize required limits with default values
+    RequiredLimits requiredLimits = Default;
+
+    // Set the required limits for the application
+    // We use at most 1 vertex attribute for now
+    requiredLimits.limits.maxVertexAttributes = 1;
+    // We should also tell that we use 1 vertex buffer
+    requiredLimits.limits.maxVertexBuffers = 1;
+    // Maximum size of a buffer is 6 vertices of 2 floats each
+    requiredLimits.limits.maxBufferSize = 6 * 2 * sizeof(float);
+    // Maximum stride between 2 consecutive vertices in the vertex buffer
+    requiredLimits.limits.maxVertexBufferArrayStride = 2 * sizeof(float);
+    // Minimum storage buffer offset alignment, fetched from supported limits
+    requiredLimits.limits.minStorageBufferOffsetAlignment = supportedLimits.limits.minStorageBufferOffsetAlignment;
+
+    // Ensure the required limits are not better than the supported limits
+    if (requiredLimits.limits.minStorageBufferOffsetAlignment < supportedLimits.limits.minStorageBufferOffsetAlignment) {
+        requiredLimits.limits.minStorageBufferOffsetAlignment = supportedLimits.limits.minStorageBufferOffsetAlignment;
+    }
+
+    // Set the minUniformBufferOffsetAlignment limit explicitly
+    requiredLimits.limits.minUniformBufferOffsetAlignment = supportedLimits.limits.minUniformBufferOffsetAlignment;
+
+    return requiredLimits;
+}
+
+
 
 void Application::InitializeBuffers() {
 	// Vertex buffer data
@@ -399,26 +440,4 @@ void Application::InitializeBuffers() {
 	
 	// Upload geometry data to the buffer
 	queue.writeBuffer(vertexBuffer, 0, vertexData.data(), bufferDesc.size);
-}
-
-RequiredLimits Application::GetRequiredLimits(Adapter adapter) const {
-	// Get adapter supported limits, in case we need them
-	SupportedLimits supportedLimits;
-	adapter.getLimits(&supportedLimits);
-
-	// Don't forget to = Default
-	RequiredLimits requiredLimits = Default;
-
-	// We use at most 1 vertex attribute for now
-	requiredLimits.limits.maxVertexAttributes = 1;
-	// We should also tell that we use 1 vertex buffers
-	requiredLimits.limits.maxVertexBuffers = 1;
-	// Maximum size of a buffer is 6 vertices of 2 float each
-	requiredLimits.limits.maxBufferSize = 6 * 2 * sizeof(float);
-	// Maximum stride between 2 consecutive vertices in the vertex buffer
-	requiredLimits.limits.maxVertexBufferArrayStride = 2 * sizeof(float);
-	// This must be set even if we do not use storage buffers for now
-	requiredLimits.limits.minStorageBufferOffsetAlignment = supportedLimits.limits.minStorageBufferOffsetAlignment;
-
-	return requiredLimits;
 }

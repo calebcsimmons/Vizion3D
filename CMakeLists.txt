@@ -7,19 +7,22 @@ project(
     LANGUAGES CXX C
 )
 
-# Add glfw
-add_subdirectory(glfw)
+if (NOT EMSCRIPTEN)
+	add_subdirectory(glfw)
+else()
+	add_library(glfw INTERFACE)
+	target_link_options(glfw INTERFACE -sUSE_GLFW=3)
+endif()
 
 add_subdirectory(webgpu)
-# Add a little extension of glfw that connects it to WebGPU
 add_subdirectory(glfw3webgpu)
 
 add_executable(App
 	main.cpp
 )
 
-# Add glfw and glfw3webgpu as dependencies of our App
 target_link_libraries(App PRIVATE glfw webgpu glfw3webgpu)
+
 target_copy_webgpu_binaries(App)
 
 set_target_properties(App PROPERTIES
