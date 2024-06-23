@@ -3,8 +3,11 @@ Welcome to Vizion3D: A 3D Model Viewer! This application is designed to provide 
 
 ## Features
  **High Performance:** Leverages the power of WebGPU for smooth rendering.
+ 
  **Cross-Platform:** Compatible with major operating systems.
+ 
  **User-Friendly Interface:** Easy to navigate and interact with 3D models.
+ 
  **Model Support:** .obj and .stl files
 
 ## Getting Started
