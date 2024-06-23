@@ -15,14 +15,17 @@ add_subdirectory(glfw)
 add_subdirectory(webgpu)
 add_subdirectory(glfw3webgpu)
 
-add_executable(App
+add_executable(
+	App
 	main.cpp
 	Application.h
 	Application.cpp
 	ResourceManager.h
 	ResourceManager.cpp
 	implementations.cpp
-)
+	stb_image.h
+	tiny_obj_loader.h
+	)
 
 if(DEV_MODE)
 	# In dev mode, we load resources from the source tree, so that when we
