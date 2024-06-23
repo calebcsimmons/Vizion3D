@@ -456,7 +456,7 @@ bool Application::initTexture() {
 	m_sampler = m_device.createSampler(samplerDesc);
 
 	// Create a texture
-	m_texture = ResourceManager::loadTexture(RESOURCE_DIR "/fourareen2K_albedo.jpg", m_device, &m_textureView);
+	m_texture = ResourceManager::loadTexture(RESOURCE_DIR "/Liberty-GreenBronze-1.bmp", m_device, &m_textureView);
 	if (!m_texture) {
 		std::cerr << "Could not load texture!" << std::endl;
 		return false;
@@ -478,7 +478,7 @@ void Application::terminateTexture() {
 bool Application::initGeometry() {
 	// Load mesh data from OBJ file
 	std::vector<VertexAttributes> vertexData;
-	bool success = ResourceManager::loadGeometryFromObj(RESOURCE_DIR "/fourareen.obj", vertexData);
+	bool success = ResourceManager::loadGeometryFromObj(RESOURCE_DIR "/LibertStatue.obj", vertexData);
 	if (!success) {
 		std::cerr << "Could not load geometry!" << std::endl;
 		return false;
