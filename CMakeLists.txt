@@ -65,11 +65,13 @@ endif (MSVC)
 
 # Define install rules
 install(TARGETS App DESTINATION bin)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libwgpu_native.dylib DESTINATION bin)  # Ensure it points to the correct directory
 install(DIRECTORY resources DESTINATION .)
 
 # CPack configuration
-set(CPACK_PACKAGE_NAME "MyApp")
-set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_NAME "VIZION3D")
+set(CPACK_PACKAGE_VERSION "1.0")
 set(CPACK_GENERATOR "ZIP")  # Use ZIP instead of TGZ
+# set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
 
 include(CPack)
