@@ -1,4 +1,4 @@
-# 3D Model Viewer
+# Vizion3D
 Welcome to Vizion3D: A 3D Model Viewer! This application is designed to provide a seamless experience for viewing 3D models. It is built using C/C++ and WebGPU, ensuring high performance and cross-platform compatibility.
 
 ## Features
