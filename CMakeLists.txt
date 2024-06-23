@@ -7,8 +7,6 @@ project(
 
 include(utils.cmake)
 
-# We add an option to enable different settings when developping the app than
-# when distributing it.
 option(DEV_MODE "Set up development helper settings" ON)
 
 add_subdirectory(glfw)
@@ -30,7 +28,7 @@ add_executable(
 if(DEV_MODE)
 	# In dev mode, we load resources from the source tree, so that when we
 	# dynamically edit resources (like shaders), these are correctly
-	# versionned.
+	# versioned.
 	target_compile_definitions(App PRIVATE
 		RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/resources"
 	)
@@ -64,6 +62,10 @@ if (MSVC)
 	# Disable warning C4244: conversion from 'int' to 'short', possible loss of data
 	target_compile_options(App PUBLIC /wd4244)
 endif (MSVC)
+
+# Define install rules
+install(TARGETS App DESTINATION bin)
+install(DIRECTORY resources DESTINATION .)
 
 # CPack configuration
 set(CPACK_PACKAGE_NAME "MyApp")
