@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.1...3.25)
+cmake_minimum_required(VERSION 3.5)
 project(
-	LearnWebGPU
+	VIZION3D
 	VERSION 0.1.0
 	LANGUAGES CXX C
 )
@@ -61,3 +61,10 @@ if (MSVC)
 	# Disable warning C4244: conversion from 'int' to 'short', possible loss of data
 	target_compile_options(App PUBLIC /wd4244)
 endif (MSVC)
+
+# CPack configuration
+set(CPACK_PACKAGE_NAME "MyApp")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_GENERATOR "ZIP")  # Use ZIP instead of TGZ
+
+include(CPack)
