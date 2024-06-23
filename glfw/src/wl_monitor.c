@@ -1,5 +1,5 @@
 //========================================================================
-// GLFW 3.4 Wayland - www.glfw.org
+// GLFW 3.3 Wayland - www.glfw.org
 //------------------------------------------------------------------------
 // Copyright (c) 2014 Jonas Ådahl <jadahl@gmail.com>
 //
@@ -23,18 +23,16 @@
 //    distribution.
 //
 //========================================================================
+// It is fine to use C99 in this file because it will not be built with VS
+//========================================================================
 
 #include "internal.h"
-
-#if defined(_GLFW_WAYLAND)
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 #include <math.h>
-
-#include "wayland-client-protocol.h"
 
 
 static void outputHandleGeometry(void* userData,
@@ -78,7 +76,7 @@ static void outputHandleMode(void* userData,
 
     monitor->modeCount++;
     monitor->modes =
-        _glfw_realloc(monitor->modes, monitor->modeCount * sizeof(GLFWvidmode));
+        realloc(monitor->modes, monitor->modeCount * sizeof(GLFWvidmode));
     monitor->modes[monitor->modeCount - 1] = mode;
 
     if (flags & WL_OUTPUT_MODE_CURRENT)
@@ -116,17 +114,18 @@ static void outputHandleScale(void* userData,
 
     for (_GLFWwindow* window = _glfw.windowListHead; window; window = window->next)
     {
-        for (size_t i = 0; i < window->wl.outputScaleCount; i++)
+        for (int i = 0; i < window->wl.monitorsCount; i++)
         {
-            if (window->wl.outputScales[i].output == monitor->wl.output)
+            if (window->wl.monitors[i] == monitor)
             {
-                window->wl.outputScales[i].factor = monitor->wl.scale;
-                _glfwUpdateBufferScaleFromOutputsWayland(window);
+                _glfwUpdateContentScaleWayland(window);
                 break;
             }
         }
     }
 }
+
+#ifdef WL_OUTPUT_NAME_SINCE_VERSION
 
 void outputHandleName(void* userData, struct wl_output* wl_output, const char* name)
 {
@@ -141,14 +140,18 @@ void outputHandleDescription(void* userData,
 {
 }
 
+#endif // WL_OUTPUT_NAME_SINCE_VERSION
+
 static const struct wl_output_listener outputListener =
 {
     outputHandleGeometry,
     outputHandleMode,
     outputHandleDone,
     outputHandleScale,
+#ifdef WL_OUTPUT_NAME_SINCE_VERSION
     outputHandleName,
     outputHandleDescription,
+#endif
 };
 
 
@@ -165,7 +168,11 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
         return;
     }
 
+#ifdef WL_OUTPUT_NAME_SINCE_VERSION
     version = _glfw_min(version, WL_OUTPUT_NAME_SINCE_VERSION);
+#else
+    version = 2;
+#endif
 
     struct wl_output* output = wl_registry_bind(_glfw.wl.registry,
                                                 name,
@@ -180,7 +187,6 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
     monitor->wl.output = output;
     monitor->wl.name = name;
 
-    wl_proxy_set_tag((struct wl_proxy*) output, &_glfw.wl.tag);
     wl_output_add_listener(output, &outputListener, monitor);
 }
 
@@ -189,13 +195,13 @@ void _glfwAddOutputWayland(uint32_t name, uint32_t version)
 //////                       GLFW platform API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-void _glfwFreeMonitorWayland(_GLFWmonitor* monitor)
+void _glfwPlatformFreeMonitor(_GLFWmonitor* monitor)
 {
     if (monitor->wl.output)
         wl_output_destroy(monitor->wl.output);
 }
 
-void _glfwGetMonitorPosWayland(_GLFWmonitor* monitor, int* xpos, int* ypos)
+void _glfwPlatformGetMonitorPos(_GLFWmonitor* monitor, int* xpos, int* ypos)
 {
     if (xpos)
         *xpos = monitor->wl.x;
@@ -203,8 +209,8 @@ void _glfwGetMonitorPosWayland(_GLFWmonitor* monitor, int* xpos, int* ypos)
         *ypos = monitor->wl.y;
 }
 
-void _glfwGetMonitorContentScaleWayland(_GLFWmonitor* monitor,
-                                        float* xscale, float* yscale)
+void _glfwPlatformGetMonitorContentScale(_GLFWmonitor* monitor,
+                                         float* xscale, float* yscale)
 {
     if (xscale)
         *xscale = (float) monitor->wl.scale;
@@ -212,9 +218,9 @@ void _glfwGetMonitorContentScaleWayland(_GLFWmonitor* monitor,
         *yscale = (float) monitor->wl.scale;
 }
 
-void _glfwGetMonitorWorkareaWayland(_GLFWmonitor* monitor,
-                                    int* xpos, int* ypos,
-                                    int* width, int* height)
+void _glfwPlatformGetMonitorWorkarea(_GLFWmonitor* monitor,
+                                     int* xpos, int* ypos,
+                                     int* width, int* height)
 {
     if (xpos)
         *xpos = monitor->wl.x;
@@ -226,28 +232,28 @@ void _glfwGetMonitorWorkareaWayland(_GLFWmonitor* monitor,
         *height = monitor->modes[monitor->wl.currentMode].height;
 }
 
-GLFWvidmode* _glfwGetVideoModesWayland(_GLFWmonitor* monitor, int* found)
+GLFWvidmode* _glfwPlatformGetVideoModes(_GLFWmonitor* monitor, int* found)
 {
     *found = monitor->modeCount;
     return monitor->modes;
 }
 
-GLFWbool _glfwGetVideoModeWayland(_GLFWmonitor* monitor, GLFWvidmode* mode)
+void _glfwPlatformGetVideoMode(_GLFWmonitor* monitor, GLFWvidmode* mode)
 {
     *mode = monitor->modes[monitor->wl.currentMode];
-    return GLFW_TRUE;
 }
 
-GLFWbool _glfwGetGammaRampWayland(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
+GLFWbool _glfwPlatformGetGammaRamp(_GLFWmonitor* monitor, GLFWgammaramp* ramp)
 {
-    _glfwInputError(GLFW_FEATURE_UNAVAILABLE,
+    _glfwInputError(GLFW_PLATFORM_ERROR,
                     "Wayland: Gamma ramp access is not available");
     return GLFW_FALSE;
 }
 
-void _glfwSetGammaRampWayland(_GLFWmonitor* monitor, const GLFWgammaramp* ramp)
+void _glfwPlatformSetGammaRamp(_GLFWmonitor* monitor,
+                               const GLFWgammaramp* ramp)
 {
-    _glfwInputError(GLFW_FEATURE_UNAVAILABLE,
+    _glfwInputError(GLFW_PLATFORM_ERROR,
                     "Wayland: Gamma ramp access is not available");
 }
 
@@ -260,15 +266,6 @@ GLFWAPI struct wl_output* glfwGetWaylandMonitor(GLFWmonitor* handle)
 {
     _GLFWmonitor* monitor = (_GLFWmonitor*) handle;
     _GLFW_REQUIRE_INIT_OR_RETURN(NULL);
-
-    if (_glfw.platform.platformID != GLFW_PLATFORM_WAYLAND)
-    {
-        _glfwInputError(GLFW_PLATFORM_UNAVAILABLE, "Wayland: Platform not initialized");
-        return NULL;
-    }
-
     return monitor->wl.output;
 }
-
-#endif // _GLFW_WAYLAND
 

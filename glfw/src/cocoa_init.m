@@ -1,5 +1,5 @@
 //========================================================================
-// GLFW 3.4 macOS - www.glfw.org
+// GLFW 3.3 macOS - www.glfw.org
 //------------------------------------------------------------------------
 // Copyright (c) 2009-2019 Camilla Löwy <elmindreda@glfw.org>
 //
@@ -23,11 +23,10 @@
 //    distribution.
 //
 //========================================================================
+// It is fine to use C99 in this file because it will not be built with VS
+//========================================================================
 
 #include "internal.h"
-
-#if defined(_GLFW_COCOA)
-
 #include <sys/param.h> // For MAXPATHLEN
 
 // Needed for _NSGetProgname
@@ -76,6 +75,7 @@ static void changeToResourcesDirectory(void)
 //
 static void createMenuBar(void)
 {
+    size_t i;
     NSString* appName = nil;
     NSDictionary* bundleInfo = [[NSBundle mainBundle] infoDictionary];
     NSString* nameKeys[] =
@@ -87,7 +87,7 @@ static void createMenuBar(void)
 
     // Try to figure out what the calling application is called
 
-    for (size_t i = 0;  i < sizeof(nameKeys) / sizeof(nameKeys[0]);  i++)
+    for (i = 0;  i < sizeof(nameKeys) / sizeof(nameKeys[0]);  i++)
     {
         id name = bundleInfo[nameKeys[i]];
         if (name &&
@@ -177,6 +177,8 @@ static void createMenuBar(void)
 //
 static void createKeyTables(void)
 {
+    int scancode;
+
     memset(_glfw.ns.keycodes, -1, sizeof(_glfw.ns.keycodes));
     memset(_glfw.ns.scancodes, -1, sizeof(_glfw.ns.scancodes));
 
@@ -249,7 +251,7 @@ static void createKeyTables(void)
     _glfw.ns.keycodes[0x6D] = GLFW_KEY_F10;
     _glfw.ns.keycodes[0x67] = GLFW_KEY_F11;
     _glfw.ns.keycodes[0x6F] = GLFW_KEY_F12;
-    _glfw.ns.keycodes[0x69] = GLFW_KEY_PRINT_SCREEN;
+    _glfw.ns.keycodes[0x69] = GLFW_KEY_F13;
     _glfw.ns.keycodes[0x6B] = GLFW_KEY_F14;
     _glfw.ns.keycodes[0x71] = GLFW_KEY_F15;
     _glfw.ns.keycodes[0x6A] = GLFW_KEY_F16;
@@ -295,7 +297,7 @@ static void createKeyTables(void)
     _glfw.ns.keycodes[0x43] = GLFW_KEY_KP_MULTIPLY;
     _glfw.ns.keycodes[0x4E] = GLFW_KEY_KP_SUBTRACT;
 
-    for (int scancode = 0;  scancode < 256;  scancode++)
+    for (scancode = 0;  scancode < 256;  scancode++)
     {
         // Store the reverse translation for faster key name lookup
         if (_glfw.ns.keycodes[scancode] >= 0)
@@ -305,7 +307,7 @@ static void createKeyTables(void)
 
 // Retrieve Unicode data for the current keyboard layout
 //
-static GLFWbool updateUnicodeData(void)
+static GLFWbool updateUnicodeDataNS(void)
 {
     if (_glfw.ns.inputSource)
     {
@@ -375,7 +377,7 @@ static GLFWbool initializeTIS(void)
     _glfw.ns.tis.kPropertyUnicodeKeyLayoutData =
         *kPropertyUnicodeKeyLayoutData;
 
-    return updateUnicodeData();
+    return updateUnicodeDataNS();
 }
 
 @interface GLFWHelper : NSObject
@@ -385,7 +387,7 @@ static GLFWbool initializeTIS(void)
 
 - (void)selectedKeyboardInputSourceChanged:(NSObject* )object
 {
-    updateUnicodeData();
+    updateUnicodeDataNS();
 }
 
 - (void)doNothing:(id)object
@@ -401,7 +403,9 @@ static GLFWbool initializeTIS(void)
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
-    for (_GLFWwindow* window = _glfw.windowListHead;  window;  window = window->next)
+    _GLFWwindow* window;
+
+    for (window = _glfw.windowListHead;  window;  window = window->next)
         _glfwInputWindowCloseRequest(window);
 
     return NSTerminateCancel;
@@ -409,13 +413,15 @@ static GLFWbool initializeTIS(void)
 
 - (void)applicationDidChangeScreenParameters:(NSNotification *) notification
 {
-    for (_GLFWwindow* window = _glfw.windowListHead;  window;  window = window->next)
+    _GLFWwindow* window;
+
+    for (window = _glfw.windowListHead;  window;  window = window->next)
     {
         if (window->context.client != GLFW_NO_API)
             [window->context.nsgl.object update];
     }
 
-    _glfwPollMonitorsCocoa();
+    _glfwPollMonitorsNS();
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
@@ -438,14 +444,22 @@ static GLFWbool initializeTIS(void)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    _glfwPostEmptyEventCocoa();
+    _glfw.ns.finishedLaunching = GLFW_TRUE;
+    _glfwPlatformPostEmptyEvent();
+
+    // In case we are unbundled, make us a proper UI application
+    if (_glfw.hints.init.ns.menubar)
+        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+
     [NSApp stop:nil];
 }
 
 - (void)applicationDidHide:(NSNotification *)notification
 {
-    for (int i = 0;  i < _glfw.monitorCount;  i++)
-        _glfwRestoreVideoModeCocoa(_glfw.monitors[i]);
+    int i;
+
+    for (i = 0;  i < _glfw.monitorCount;  i++)
+        _glfwRestoreVideoModeNS(_glfw.monitors[i]);
 }
 
 @end // GLFWApplicationDelegate
@@ -455,7 +469,7 @@ static GLFWbool initializeTIS(void)
 //////                       GLFW internal API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-void* _glfwLoadLocalVulkanLoaderCocoa(void)
+void* _glfwLoadLocalVulkanLoaderNS(void)
 {
     CFBundleRef bundle = CFBundleGetMainBundle();
     if (!bundle)
@@ -477,7 +491,7 @@ void* _glfwLoadLocalVulkanLoaderCocoa(void)
     void* handle = NULL;
 
     if (CFURLGetFileSystemRepresentation(loaderUrl, true, (UInt8*) path, sizeof(path) - 1))
-        handle = _glfwPlatformLoadModule(path);
+        handle = _glfw_dlopen(path);
 
     CFRelease(loaderUrl);
     CFRelease(frameworksUrl);
@@ -489,89 +503,7 @@ void* _glfwLoadLocalVulkanLoaderCocoa(void)
 //////                       GLFW platform API                      //////
 //////////////////////////////////////////////////////////////////////////
 
-GLFWbool _glfwConnectCocoa(int platformID, _GLFWplatform* platform)
-{
-    const _GLFWplatform cocoa =
-    {
-        .platformID = GLFW_PLATFORM_COCOA,
-        .init = _glfwInitCocoa,
-        .terminate = _glfwTerminateCocoa,
-        .getCursorPos = _glfwGetCursorPosCocoa,
-        .setCursorPos = _glfwSetCursorPosCocoa,
-        .setCursorMode = _glfwSetCursorModeCocoa,
-        .setRawMouseMotion = _glfwSetRawMouseMotionCocoa,
-        .rawMouseMotionSupported = _glfwRawMouseMotionSupportedCocoa,
-        .createCursor = _glfwCreateCursorCocoa,
-        .createStandardCursor = _glfwCreateStandardCursorCocoa,
-        .destroyCursor = _glfwDestroyCursorCocoa,
-        .setCursor = _glfwSetCursorCocoa,
-        .getScancodeName = _glfwGetScancodeNameCocoa,
-        .getKeyScancode = _glfwGetKeyScancodeCocoa,
-        .setClipboardString = _glfwSetClipboardStringCocoa,
-        .getClipboardString = _glfwGetClipboardStringCocoa,
-        .initJoysticks = _glfwInitJoysticksCocoa,
-        .terminateJoysticks = _glfwTerminateJoysticksCocoa,
-        .pollJoystick = _glfwPollJoystickCocoa,
-        .getMappingName = _glfwGetMappingNameCocoa,
-        .updateGamepadGUID = _glfwUpdateGamepadGUIDCocoa,
-        .freeMonitor = _glfwFreeMonitorCocoa,
-        .getMonitorPos = _glfwGetMonitorPosCocoa,
-        .getMonitorContentScale = _glfwGetMonitorContentScaleCocoa,
-        .getMonitorWorkarea = _glfwGetMonitorWorkareaCocoa,
-        .getVideoModes = _glfwGetVideoModesCocoa,
-        .getVideoMode = _glfwGetVideoModeCocoa,
-        .getGammaRamp = _glfwGetGammaRampCocoa,
-        .setGammaRamp = _glfwSetGammaRampCocoa,
-        .createWindow = _glfwCreateWindowCocoa,
-        .destroyWindow = _glfwDestroyWindowCocoa,
-        .setWindowTitle = _glfwSetWindowTitleCocoa,
-        .setWindowIcon = _glfwSetWindowIconCocoa,
-        .getWindowPos = _glfwGetWindowPosCocoa,
-        .setWindowPos = _glfwSetWindowPosCocoa,
-        .getWindowSize = _glfwGetWindowSizeCocoa,
-        .setWindowSize = _glfwSetWindowSizeCocoa,
-        .setWindowSizeLimits = _glfwSetWindowSizeLimitsCocoa,
-        .setWindowAspectRatio = _glfwSetWindowAspectRatioCocoa,
-        .getFramebufferSize = _glfwGetFramebufferSizeCocoa,
-        .getWindowFrameSize = _glfwGetWindowFrameSizeCocoa,
-        .getWindowContentScale = _glfwGetWindowContentScaleCocoa,
-        .iconifyWindow = _glfwIconifyWindowCocoa,
-        .restoreWindow = _glfwRestoreWindowCocoa,
-        .maximizeWindow = _glfwMaximizeWindowCocoa,
-        .showWindow = _glfwShowWindowCocoa,
-        .hideWindow = _glfwHideWindowCocoa,
-        .requestWindowAttention = _glfwRequestWindowAttentionCocoa,
-        .focusWindow = _glfwFocusWindowCocoa,
-        .setWindowMonitor = _glfwSetWindowMonitorCocoa,
-        .windowFocused = _glfwWindowFocusedCocoa,
-        .windowIconified = _glfwWindowIconifiedCocoa,
-        .windowVisible = _glfwWindowVisibleCocoa,
-        .windowMaximized = _glfwWindowMaximizedCocoa,
-        .windowHovered = _glfwWindowHoveredCocoa,
-        .framebufferTransparent = _glfwFramebufferTransparentCocoa,
-        .getWindowOpacity = _glfwGetWindowOpacityCocoa,
-        .setWindowResizable = _glfwSetWindowResizableCocoa,
-        .setWindowDecorated = _glfwSetWindowDecoratedCocoa,
-        .setWindowFloating = _glfwSetWindowFloatingCocoa,
-        .setWindowOpacity = _glfwSetWindowOpacityCocoa,
-        .setWindowMousePassthrough = _glfwSetWindowMousePassthroughCocoa,
-        .pollEvents = _glfwPollEventsCocoa,
-        .waitEvents = _glfwWaitEventsCocoa,
-        .waitEventsTimeout = _glfwWaitEventsTimeoutCocoa,
-        .postEmptyEvent = _glfwPostEmptyEventCocoa,
-        .getEGLPlatform = _glfwGetEGLPlatformCocoa,
-        .getEGLNativeDisplay = _glfwGetEGLNativeDisplayCocoa,
-        .getEGLNativeWindow = _glfwGetEGLNativeWindowCocoa,
-        .getRequiredInstanceExtensions = _glfwGetRequiredInstanceExtensionsCocoa,
-        .getPhysicalDevicePresentationSupport = _glfwGetPhysicalDevicePresentationSupportCocoa,
-        .createWindowSurface = _glfwCreateWindowSurfaceCocoa
-    };
-
-    *platform = cocoa;
-    return GLFW_TRUE;
-}
-
-int _glfwInitCocoa(void)
+int _glfwPlatformInit(void)
 {
     @autoreleasepool {
 
@@ -580,6 +512,9 @@ int _glfwInitCocoa(void)
     [NSThread detachNewThreadSelector:@selector(doNothing:)
                              toTarget:_glfw.ns.helper
                            withObject:nil];
+
+    if (NSApp)
+        _glfw.ns.finishedLaunching = GLFW_TRUE;
 
     [NSApplication sharedApplication];
 
@@ -629,21 +564,16 @@ int _glfwInitCocoa(void)
     if (!initializeTIS())
         return GLFW_FALSE;
 
-    _glfwPollMonitorsCocoa();
+    _glfwInitTimerNS();
+    _glfwInitJoysticksNS();
 
-    if (![[NSRunningApplication currentApplication] isFinishedLaunching])
-        [NSApp run];
-
-    // In case we are unbundled, make us a proper UI application
-    if (_glfw.hints.init.ns.menubar)
-        [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
-
+    _glfwPollMonitorsNS();
     return GLFW_TRUE;
 
     } // autoreleasepool
 }
 
-void _glfwTerminateCocoa(void)
+void _glfwPlatformTerminate(void)
 {
     @autoreleasepool {
 
@@ -682,14 +612,22 @@ void _glfwTerminateCocoa(void)
     if (_glfw.ns.keyUpMonitor)
         [NSEvent removeMonitor:_glfw.ns.keyUpMonitor];
 
-    _glfw_free(_glfw.ns.clipboardString);
+    free(_glfw.ns.clipboardString);
 
     _glfwTerminateNSGL();
     _glfwTerminateEGL();
     _glfwTerminateOSMesa();
+    _glfwTerminateJoysticksNS();
 
     } // autoreleasepool
 }
 
-#endif // _GLFW_COCOA
+const char* _glfwPlatformGetVersionString(void)
+{
+    return _GLFW_VERSION_NUMBER " Cocoa NSGL EGL OSMesa"
+#if defined(_GLFW_BUILD_DLL)
+        " dynamic"
+#endif
+        ;
+}
 
