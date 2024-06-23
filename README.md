@@ -2,10 +2,10 @@
 Welcome to Vizion3D: A 3D Model Viewer! This application is designed to provide a seamless experience for viewing 3D models. It is built using C/C++ and WebGPU, ensuring high performance and cross-platform compatibility.
 
 ## Features
- #### High Performance: Leverages the power of WebGPU for smooth rendering.
-#### Cross-Platform: Compatible with major operating systems.
-#### User-Friendly Interface: Easy to navigate and interact with 3D models.
-#### Currently supports .obj and .stl files
+ **High Performance:** Leverages the power of WebGPU for smooth rendering.
+ **Cross-Platform:** Compatible with major operating systems.
+ **User-Friendly Interface:** Easy to navigate and interact with 3D models.
+ **Model Support:** .obj and .stl files
 
 ## Getting Started
 Follow the instructions below to download and run the 3D Model Viewer on your system.
