@@ -158,9 +158,9 @@ bool Application::initWindowAndDevice() {
 	}
 
 	glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-	//                             ^^^^^^^^^ This was GLFW_FALSE
-	m_window = glfwCreateWindow(640, 480, "Learn WebGPU", NULL, NULL);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); //Was False
+	                           
+	m_window = glfwCreateWindow(640, 480, "VIZION3D", NULL, NULL);
 	if (!m_window) {
 		std::cerr << "Could not open window!" << std::endl;
 		return false;
