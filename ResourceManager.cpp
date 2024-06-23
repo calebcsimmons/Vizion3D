@@ -1,4 +1,3 @@
-
 #include "ResourceManager.h"
 
 #include "stb_image.h"
