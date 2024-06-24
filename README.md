@@ -8,7 +8,7 @@ Welcome to Vizion3D: A 3D Model Viewer! This application is designed to provide 
  
  **User-Friendly Interface:** Easy to navigate and interact with 3D models.
  
- **Model Support:** .obj and .stl files
+ **Model Support:** .obj [soon to be .stl files]
 
 ## Getting Started
 Follow the instructions below to download and run the 3D Model Viewer on your system.
