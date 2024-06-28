@@ -21,8 +21,6 @@ add_executable(
     ResourceManager.h
     ResourceManager.cpp
     implementations.cpp
-    stb_image.h
-    tiny_obj_loader.h
 )
 
 if(DEV_MODE)
