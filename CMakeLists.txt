@@ -36,20 +36,31 @@ endif()
 target_include_directories(App PRIVATE .)
 
 if (WIN32)
-    set(WGPU_NATIVE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/_deps/webgpu-backend-wgpu-src/bin/")
-    find_library(WGPU_NATIVE_LIBRARY
+    # Path to the directory containing wgpu_native.dll and wgpu_native.dll.lib
+    set(WGPU_NATIVE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build-win/_deps/webgpu-backend-wgpu-src/bin/windows-x86_64")
+
+    # Find wgpu_native.dll
+    find_library(WGPU_NATIVE_DLL
         NAMES wgpu_native.dll
         PATHS ${WGPU_NATIVE_DIR}
     )
-    if (NOT WGPU_NATIVE_LIBRARY)
+    if (NOT WGPU_NATIVE_DLL)
         message(FATAL_ERROR "wgpu_native.dll not found in ${WGPU_NATIVE_DIR}")
     endif()
-    target_link_libraries(App PRIVATE glfw3webgpu ${WGPU_NATIVE_LIBRARY})
+
+    # Find wgpu_native.dll.lib
+    find_library(WGPU_NATIVE_LIB
+        NAMES wgpu_native.dll.lib
+        PATHS ${WGPU_NATIVE_DIR}
+    )
+    if (NOT WGPU_NATIVE_LIB)
+        message(FATAL_ERROR "wgpu_native.dll.lib not found in ${WGPU_NATIVE_DIR}")
+    endif()
+
+    target_link_libraries(App PRIVATE glfw3webgpu ${WGPU_NATIVE_DLL} ${WGPU_NATIVE_LIB})
 else()
     target_link_libraries(App PRIVATE glfw webgpu glfw3webgpu)
 endif()
-
-
 
 set_target_properties(App PROPERTIES
     CXX_STANDARD 17
@@ -64,7 +75,6 @@ if (MSVC)
 endif (MSVC)
 
 install(TARGETS App DESTINATION bin)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libwgpu_native.dylib DESTINATION bin)
 install(DIRECTORY resources DESTINATION .)
 
 # CPack configuration
@@ -81,6 +91,9 @@ endif()
 
 include(CPack)
 
+
+
+
 # Commands Mac Build
 # cmake ..
 # cmake --build build-mac
@@ -88,3 +101,6 @@ include(CPack)
 #Commands Window Build
 #cmake .. -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake
 # cmake --build build-win or cmake --build .
+# mkdir build-win
+# cd build-win 
+# cmake .. -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake
